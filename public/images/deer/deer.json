@@ -1,0 +1,96 @@
+{
+  "frames": {
+    "deer1.png": {
+      "frame": {
+        "x": 3,
+        "y": 3,
+        "w": 375,
+        "h": 451
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2,
+        "w": 375,
+        "h": 451
+      },
+      "sourceSize": {
+        "w": 377,
+        "h": 453
+      }
+    },
+    "deer2.png": {
+      "frame": {
+        "x": 382,
+        "y": 3,
+        "w": 409,
+        "h": 439
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 4,
+        "w": 409,
+        "h": 439
+      },
+      "sourceSize": {
+        "w": 415,
+        "h": 443
+      }
+    },
+    "deer3.png": {
+      "frame": {
+        "x": 795,
+        "y": 3,
+        "w": 375,
+        "h": 452
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 3,
+        "w": 375,
+        "h": 452
+      },
+      "sourceSize": {
+        "w": 385,
+        "h": 458
+      }
+    },
+    "deer4.png": {
+      "frame": {
+        "x": 1174,
+        "y": 3,
+        "w": 396,
+        "h": 471
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 7,
+        "w": 396,
+        "h": 471
+      },
+      "sourceSize": {
+        "w": 404,
+        "h": 481
+      }
+    }
+  },
+  "meta": {
+    "app": "http://www.codeandweb.com/texturepacker ",
+    "version": "1.0",
+    "image": "deer.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1573,
+      "h": 477
+    },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:185dfa781d6fcd9851391ec06f196251:1/1$"
+  }
+}

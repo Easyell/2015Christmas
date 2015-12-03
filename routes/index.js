@@ -16,14 +16,17 @@ var controllerDir = path.resolve(__dirname, controllerDirName);
 var jsFileRegExp = /\.js$/;
 
 //加载指定的路由
-var loadAllRoutes = function (method) {
+var loadAllRoutes = function (dir) {
 
-  return function(){
 
     fs.readdirSync(dir).filter(function (controllerName) {
       return jsFileRegExp.test(controllerName);
     }).forEach(function (controllerName) {
       var controllerNameWithoutExtension = controllerName.replace(/\.js$/, '');
+
+      console.log(
+          controllerNameWithoutExtension
+      )
 
       try {
         var controller = require(path.resolve(__dirname, dir, controllerNameWithoutExtension));
@@ -40,7 +43,6 @@ var loadAllRoutes = function (method) {
         console.error(_error);
       }
     });
-  }
 };
 
 [controllerDir].forEach(loadAllRoutes);
