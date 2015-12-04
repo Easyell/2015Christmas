@@ -70,7 +70,7 @@ do
 
  all="${all}${line}"
 
-done << `cat views/xx.ejs`
+done < `cat views/xx.ejs`
 
 echo "all,$all"
 
