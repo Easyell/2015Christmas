@@ -24,10 +24,6 @@ var loadAllRoutes = function (dir) {
     }).forEach(function (controllerName) {
       var controllerNameWithoutExtension = controllerName.replace(/\.js$/, '');
 
-      console.log(
-          controllerNameWithoutExtension
-      )
-
       try {
         var controller = require(path.resolve(__dirname, dir, controllerNameWithoutExtension));
         Object.keys(controller).forEach(function(routerName){
