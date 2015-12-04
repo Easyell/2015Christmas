@@ -1,3 +1,1 @@
-{
-  "directory":"public/bower_components"
-}
+123
