@@ -23,8 +23,7 @@ indexOf(){
  targetLen=${#target}
 
  textLen=`seq 0 ${#text}`
-
- for i in $textLen
+   for i in $textLen
  do
   partial=${text:i:targetLen};
 
@@ -46,9 +45,10 @@ targetVarLen=${#targetVar}
 
 while read line
 do
+ echo $line
 
  #findI=`indexOf $line $targetVar`
- indexOf $line $targetVar
+ indexOf "${line}" $targetVar
  findI=$?
 
  if [ $findI == 0 ]
@@ -59,7 +59,7 @@ do
 
   lineLen=${#line}
 
-  nextStart=$findI+$targetVarLen+1
+  nextStart=$findI+$targetVarLen
 
   pre=${line:0:$findI}
   next=${line:nextStart:lineLen}
@@ -70,7 +70,6 @@ do
 
  all="${all}${line}"
 
-done < `cat views/xx.ejs`
+done < $targetEjs
 
-echo "all,$all"
-
+echo $all > $targetEjs
