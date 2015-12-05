@@ -2,6 +2,7 @@
 
 routeDir="routes"
 dir="views"
+jsDir="public/js"
 
 gameName=$1
 #gameName="|xxxxx|"
@@ -10,9 +11,10 @@ targetEjs="$dir/$gameName.ejs"
 targetRoute="$routeDir/controller/$gameName.js"
 
 
-#复制模板并生成两个文件
+#复制模板并生成文件
 cat $dir/indexTemplate.ejs > $targetEjs
 cat $routeDir/viewRouteTemplate.js > $targetRoute
+touch $jsDir/$gameName/main.js
 
 #替换ejs中的js和标题
 
