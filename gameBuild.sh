@@ -7,6 +7,14 @@ jsDir="public/js"
 gameName=$1
 #gameName="|xxxxx|"
 
+if [ $gameName ]
+then
+  echo $gameName
+else
+  echo "no argument"
+  exit 0
+fi
+
 targetEjs="$dir/$gameName.ejs"
 targetRoute="$routeDir/controller/$gameName.js"
 
