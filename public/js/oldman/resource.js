@@ -4,6 +4,7 @@
 
 var localResource = {
   deer:'/images/deer/deer.json',
+  runDeer:'/images/runDeer/runDeer.json',
   oldman:'/images/oldman/oldman.png'
 };
 

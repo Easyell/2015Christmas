@@ -26,9 +26,13 @@ ready(function (com) {
     var deer = require('./sprites/deer');
     deer.play();
 
+    var runDeer = require('./sprites/runDeer');
+    runDeer.play();
+
     var oldman = require('./sprites/oldman');
 
     mainStage.addChild(deer);
+    mainStage.addChild(runDeer);
     mainStage.addChild(oldman);
 
     console.log(mainStage.children);
