@@ -30,7 +30,7 @@ module.exports = {
   },
   entry: entry,
   output: {
-    path: path.resolve(__dirname, './public/js/dist/'),
+    path: path.resolve(__dirname, './public/js/dist'),
     publicPath: "http://localhost:" + webpackDevPort + "/public/js/dist",
     filename: '[name].js'
   },

@@ -2,7 +2,7 @@
  * Created by zyg on 15/11/7.
  */
 
-var r = require('./resource');
+var r = require('./oldman/resource');
 
 module.exports = function (cb) {
 

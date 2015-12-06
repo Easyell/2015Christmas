@@ -1,7 +1,7 @@
 /**
  * Created by zyg on 15/12/3.
  */
-var sprite = require('./sprite');
+var sprite = require('./../../sprite');
 
 var deer = sprite.getMc({
     maxFrame: 4,

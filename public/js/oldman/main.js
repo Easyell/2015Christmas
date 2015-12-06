@@ -1,8 +1,8 @@
 /**
  * Created by zyg on 15/11/6.
  */
-var common = require('./common');
-var sprite = require('./sprites/sprite');
+var common = require('./../common');
+var sprite = require('./../sprite');
 
 var renderer;
 var r = common.isSupportWebGL();
@@ -19,7 +19,7 @@ if(r){
 }
 document.body.appendChild(renderer.view);
 
-var ready = require('./loader');
+var ready = require('./../loader');
 ready(function (com) {
     var mainStage = new PIXI.Container();
 
