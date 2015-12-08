@@ -55,5 +55,3 @@ var render = function(stage){
     }
     animate();
 };
-
-

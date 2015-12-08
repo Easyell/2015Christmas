@@ -9,7 +9,7 @@ module.exports = {
     index: function (req, res) {
         config.count();
 
-        res.render('index', {
+        res.render('oldman', {
             env: env,
             position: config.getR()
         });
