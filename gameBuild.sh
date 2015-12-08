@@ -22,7 +22,10 @@ targetRoute="$routeDir/controller/$gameName.js"
 #复制模板并生成文件
 cat $dir/indexTemplate.ejs > $targetEjs
 cat $routeDir/viewRouteTemplate.js > $targetRoute
+mkdir $jsDir/$gameName
 touch $jsDir/$gameName/main.js
+
+echo "拷贝模板_done"
 
 #替换ejs中的js和标题
 
@@ -55,8 +58,6 @@ targetVarLen=${#targetVar}
 
 while read line
 do
- echo $line
-
  #findI=`indexOf $line $targetVar`
  indexOf "${line}" $targetVar
  findI=$?
@@ -65,7 +66,6 @@ do
  then
   line="${line}\n"
  else
-  echo "findI,${findI}"
 
   lineLen=${#line}
 
@@ -83,3 +83,4 @@ do
 done < $targetEjs
 
 echo $all > $targetEjs
+echo "替换ejs_done"
