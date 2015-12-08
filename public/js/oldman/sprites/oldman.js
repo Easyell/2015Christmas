@@ -6,10 +6,10 @@ var R = require('../resource');
 
 var oldman = sprite.getIm({
     img: R.oldman,
-    'position.set':[100,200],
+    'position.set':[220,909],
     'scale.x': 0.3,
     'scale.y': 0.3,
-    'anchor.set': [0.5, 0.5]
+    'anchor.set': [0, 1]
 });
 
 

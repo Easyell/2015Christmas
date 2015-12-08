@@ -6,7 +6,8 @@ var sprite = require('../../sprite');
 var deer = sprite.getMc({
     maxFrame: 3,
     preFix: 'runDeer',
-    'position.set': [330, 150],
+    'position.set': [100, 904],
+    'anchor.set':[0,1],
     'animationSpeed':0.1,
     'loop': true,
     'scale.x': 0.3,

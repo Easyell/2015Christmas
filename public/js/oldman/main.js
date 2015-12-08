@@ -23,15 +23,14 @@ var ready = require('./../loader');
 ready(function (com) {
     var mainStage = new PIXI.Container();
 
-    var deer = require('./sprites/deer');
-    deer.play();
+    //var deer = require('./sprites/deer');
+    //deer.play();
 
     var runDeer = require('./sprites/runDeer');
     runDeer.play();
 
     var oldman = require('./sprites/oldman');
 
-    mainStage.addChild(deer);
     mainStage.addChild(runDeer);
     mainStage.addChild(oldman);
 
