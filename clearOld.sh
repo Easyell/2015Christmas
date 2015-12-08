@@ -20,6 +20,7 @@ targetRoute="$routeDir/controller/$oldName.js"
 rm $targetEjs
 rm $targetRoute
 rm $jsDir/$oldName/main.js
+rm -r $jsDir/$oldName/sprites
 rm -r $jsDir/$oldName
 
 echo "done"

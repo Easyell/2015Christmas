@@ -23,6 +23,7 @@ targetRoute="$routeDir/controller/$gameName.js"
 cat $dir/indexTemplate.ejs > $targetEjs
 cat $routeDir/viewRouteTemplate.js > $targetRoute
 mkdir $jsDir/$gameName
+mkdir $jsDir/$gameName/sprites
 touch $jsDir/$gameName/main.js
 
 echo "拷贝模板_done"
