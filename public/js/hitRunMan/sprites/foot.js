@@ -24,11 +24,12 @@ var rightFoot = sprite.getIm({
 
 var l=true,r=true;
 
+
+//foot.interactive = true;
 leftFoot.interactive = true;
 rightFoot.interactive = true;
 
 leftFoot.on('touchstart', function () {
-    console.log('l');
     if(l){
         l = false;
         r = true;
@@ -36,7 +37,6 @@ leftFoot.on('touchstart', function () {
     }
 });
 rightFoot.on('touchstart', function () {
-    console.log('r');
     if(r){
         l = true;
         r = false;
@@ -56,10 +56,13 @@ foot.render = function () {
     if(!--this.renderNum){
         this.renderNum = 10;
 
-        //console.log(this.footNum/this.renderNum);
+        //移动速度，基本0.2,要非常快才有0.3。
+        this.footSpeed = this.footNum/this.renderNum;
 
         this.footNum = 0;
     }
 };
+
+console.log('foot');
 
 module.exports = foot;
