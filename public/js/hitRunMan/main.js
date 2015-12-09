@@ -17,17 +17,18 @@ if(r){
 document.body.appendChild(renderer.view);
 
 var ready = require('./../loader');
-ready(function (com) {
+ready(require('./resource'),function (com) {
     var mainStage = new PIXI.Container();
-
-    //var deer = require('./sprites/deer');
-    //deer.play();
 
     var hand = require('./sprites/hand');
     var foot = require('./sprites/foot');
+    var runMan = require('./sprites/runMan');
+
+    runMan.play();
 
     mainStage.addChild(hand);
     mainStage.addChild(foot);
+    mainStage.addChild(runMan);
 
     console.log(mainStage.children);
 

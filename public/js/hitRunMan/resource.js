@@ -6,6 +6,7 @@ var localResource = {
   hand:'/images/hitRunMan/hand/hand.png',
   leftFoot:'/images/hitRunMan/foot/leftFoot.png',
   rightFoot:'/images/hitRunMan/foot/rightFoot.png',
+  runMan:'/images/hitRunMan/runMan/runMan.json',
 };
 
 var resourceMap = {

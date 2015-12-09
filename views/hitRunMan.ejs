@@ -8,11 +8,16 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <link rel="stylesheet" href="/styles/common.css"/>
+    <style>
+        body{
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
 
 </body>
-<script src="/bower_components/pixi.js/bin/pixi.min.js"></script>
+<script src="/bower_components/pixi.js/bin/pixi.js"></script>
 <script>
 var resourcePosition = "<%= position %>";
 </script>
@@ -20,7 +25,7 @@ var resourcePosition = "<%= position %>";
 <% if(env==='product'){%>
 <script src="/js/dist/hitRunManIndex.js"></script>
 <% }else{ %>
-<script src="http://localhost:7301/public/js/dist/hitRunManIndex.js"></script>
+<script src="http://localhost:7301/public/dist/hitRunManIndex.js"></script>
 <% } %>
 
 </html>

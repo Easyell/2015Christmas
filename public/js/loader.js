@@ -2,14 +2,12 @@
  * Created by zyg on 15/11/7.
  */
 
-var r = require('./oldman/resource');
-
-module.exports = function (cb) {
+module.exports = function (source,cb) {
 
     var loader = PIXI.loader; // pixi exposes a premade instance for you to use.
 
-    for (var k in r) {
-        loader.add(k, r[k]);
+    for (var k in source) {
+        loader.add(k, source[k]);
     }
 
     loader.on('progress', function (a, b) {

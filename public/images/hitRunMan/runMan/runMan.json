@@ -1,0 +1,44 @@
+{"frames": {
+
+"runMan1.png":
+{
+	"frame": {"x":380,"y":2,"w":343,"h":582},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":28,"w":343,"h":582},
+	"sourceSize": {"w":347,"h":614}
+},
+"runMan2.png":
+{
+	"frame": {"x":591,"y":347,"w":339,"h":578},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":28,"w":339,"h":578},
+	"sourceSize": {"w":343,"h":610}
+},
+"runMan3.png":
+{
+	"frame": {"x":2,"y":582,"w":364,"h":587},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":28,"w":364,"h":587},
+	"sourceSize": {"w":368,"h":619}
+},
+"runMan4.png":
+{
+	"frame": {"x":2,"y":2,"w":376,"h":578},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":28,"w":376,"h":578},
+	"sourceSize": {"w":380,"h":610}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "runMan.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:f101825851b975e609505d5350fd6b5b:1/1$"
+}
+}
