@@ -10,5 +10,7 @@ node bin/www
 
 访问:
 
-localhost:port/index/index
+两个
 
+localhost:1225/hitRunMan/index
+localhost:1225/oldman/index
