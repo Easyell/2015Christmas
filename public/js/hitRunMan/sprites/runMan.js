@@ -4,6 +4,9 @@
 var sprite = require('./../../sprite');
 var R = require('../resource');
 
+
+var foot = require('./foot');
+
 var runMan = sprite.getMc({
     maxFrame:4,
     preFix:'runMan',
@@ -14,6 +17,14 @@ var runMan = sprite.getMc({
     'animationSpeed':0.15,
     'loop':true
 });
+runMan.play();
+//固定数值
+runMan.speed = 1.5;
 
+runMan.distance = 10;
+
+runMan.render = function () {
+    this.distance = (this.speed - foot.speed ) * foot.renderMaxNum;
+};
 
 module.exports = runMan;

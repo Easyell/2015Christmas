@@ -13,4 +13,5 @@ node bin/www
 两个
 
 localhost:1225/hitRunMan/index
+
 localhost:1225/oldman/index

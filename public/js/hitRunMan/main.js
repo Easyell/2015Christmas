@@ -23,12 +23,14 @@ ready(require('./resource'),function (com) {
     var hand = require('./sprites/hand');
     var foot = require('./sprites/foot');
     var runMan = require('./sprites/runMan');
+    var distance = require('./sprites/distanceDisplay');
 
     runMan.play();
 
     mainStage.addChild(hand);
     mainStage.addChild(foot);
     mainStage.addChild(runMan);
+    mainStage.addChild(distance);
 
     console.log(mainStage.children);
 
@@ -43,6 +45,10 @@ var render = function(stage){
                 child.render();
             }
         }));
+
+
+
+
 
         // render the stage container
         renderer.render(stage);

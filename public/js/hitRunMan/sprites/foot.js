@@ -29,6 +29,8 @@ var l=true,r=true;
 leftFoot.interactive = true;
 rightFoot.interactive = true;
 
+
+//分别点击左右脚，加步数和计算速度。
 leftFoot.on('touchstart', function () {
     if(l){
         l = false;
@@ -44,25 +46,29 @@ rightFoot.on('touchstart', function () {
     }
 });
 
+//initial speed
+foot.speed = 1;
 //步数
 foot.footNum = 0;
 //计算每10帧的速度
-foot.renderNum = 10;
+foot.renderMaxNum = 10;
+foot.renderNum = foot.renderMaxNum;
 
 foot.addChild(leftFoot);
 foot.addChild(rightFoot);
+
 
 foot.render = function () {
     if(!--this.renderNum){
         this.renderNum = 10;
 
         //移动速度，基本0.2,要非常快才有0.3。
-        this.footSpeed = this.footNum/this.renderNum;
+        this.speed = this.footNum/this.renderNum;
 
         this.footNum = 0;
     }
 };
 
-console.log('foot');
+
 
 module.exports = foot;
