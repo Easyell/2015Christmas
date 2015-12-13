@@ -13,19 +13,19 @@ var text = new PIXI.Text('距离米', {
 text.x = 220;
 text.y = 730;
 
-
 var renderMaxCount = foot.renderMaxNum;
 var renderCount = renderMaxCount;
 var distance = 10;
 
 var calculateDistance = function(distance,speed,footSpeed){
+    var gap = (speed - footSpeed ) * 2;
 
     distance = parseFloat(distance);
 
-    distance += (speed - footSpeed ) * 2;
+    distance += distance <= 1000 ?gap:
+        gap<0?gap:1;
 
-    distance = distance > 1000?distance+1:
-        distance <= 0 ? 0:distance;
+    distance = distance <= 0 ? 0:distance;
 
     distance = distance.toFixed(1);
 
@@ -37,6 +37,9 @@ text.render = function () {
     if(!--renderCount){
 
         distance = calculateDistance(distance,runMan.speed,foot.speed);
+
+        runMan.setMode(distance);
+
 
         renderCount = renderMaxCount;
     }
