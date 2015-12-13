@@ -2,6 +2,7 @@
  * Created by zyg on 15/12/12.
  */
 var runMan = require('./runMan');
+var foot = require('./foot');
 
 var text = new PIXI.Text('距离米', {
         font: '32px Arial',
@@ -12,11 +13,37 @@ var text = new PIXI.Text('距离米', {
 text.x = 220;
 text.y = 730;
 
-text.render = function () {
 
-    this.text = '距离'+runMan.distance+'米';
+var renderMaxCount = foot.renderMaxNum;
+var renderCount = renderMaxCount;
+var distance = 10;
+
+var calculateDistance = function(distance,speed,footSpeed){
+
+    distance = parseFloat(distance);
+
+    distance += (speed - footSpeed ) * 2;
+
+    distance = distance > 1000?distance+1:
+        distance <= 0 ? 0:distance;
+
+    distance = distance.toFixed(1);
+
+    return distance;
 };
 
+text.render = function () {
+
+    if(!--renderCount){
+
+        distance = calculateDistance(distance,runMan.speed,foot.speed);
+
+        renderCount = renderMaxCount;
+    }
+
+
+    this.text = '距离'+distance+'米';
+};
 
 
 module.exports = text;

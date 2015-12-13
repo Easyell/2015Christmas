@@ -44,6 +44,10 @@ rightFoot.on('touchstart', function () {
         r = false;
         foot.footNum++
     }
+    //@FOR TEST
+    foot.footNum++
+
+    console.log(foot.footNum,foot.speed);
 });
 
 //initial speed
@@ -52,20 +56,20 @@ foot.speed = 1;
 foot.footNum = 0;
 //计算每10帧的速度
 foot.renderMaxNum = 10;
-foot.renderNum = foot.renderMaxNum;
+
 
 foot.addChild(leftFoot);
 foot.addChild(rightFoot);
 
 
+var renderCount = foot.renderMaxNum;
+
 foot.render = function () {
-    if(!--this.renderNum){
-        this.renderNum = 10;
+    if(!(--renderCount)){
+        renderCount = foot.renderMaxNum;
 
         //移动速度，基本0.2,要非常快才有0.3。
-        this.speed = this.footNum/this.renderNum;
-
-        this.footNum = 0;
+        this.speed = foot.footNum/renderCount;
     }
 };
 

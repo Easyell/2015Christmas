@@ -21,10 +21,8 @@ runMan.play();
 //固定数值
 runMan.speed = 1.5;
 
-runMan.distance = 10;
 
 runMan.render = function () {
-    this.distance = (this.speed - foot.speed ) * foot.renderMaxNum;
 };
 
 module.exports = runMan;
