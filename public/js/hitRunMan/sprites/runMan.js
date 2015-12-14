@@ -17,12 +17,14 @@ var runMan = sprite.getMc({
 });
 runMan.play();
 //固定数值
-runMan.speed = 10;
+runMan.speed = 1.5;
 
 var initialY = 400;
 
 //根据距离差，近大远小
 runMan.setMode = function (distance) {
+    distance = distance * 10;
+
     if(distance>=600) {
         distance = 600;
     }
