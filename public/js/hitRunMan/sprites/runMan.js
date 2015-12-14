@@ -3,7 +3,6 @@
  */
 var sprite = require('./../../sprite');
 var R = require('../resource');
-
 var foot = require('./foot');
 
 var runMan = sprite.getMc({
@@ -18,18 +17,16 @@ var runMan = sprite.getMc({
 });
 runMan.play();
 //固定数值
-runMan.speed = 1.5;
+runMan.speed = 10;
 
 var initialY = 400;
 
 //根据距离差，近大远小
 runMan.setMode = function (distance) {
-    if(distance>=600){
+    if(distance>=600) {
         distance = 600;
     }
-
-    var s = 0.9-distance/1000;
-
+    var s = 0.9-distance /1000;
     this.scale.set(s,s);
     this.y = initialY - distance/10;
 };

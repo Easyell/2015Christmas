@@ -66,10 +66,11 @@ var renderCount = foot.renderMaxNum;
 
 foot.render = function () {
     if(!(--renderCount)){
-        renderCount = foot.renderMaxNum;
-
+        renderCount = foot.renderMaxNum
         //移动速度，基本0.2,要非常快才有0.3。
-        this.speed = foot.footNum/renderCount;
+        this.speed = foot.footNum/renderCount * 150;
+        console.log('speed:' + this.speed);
+        foot.footNum = 0;
     }
 };
 
