@@ -25,19 +25,19 @@ ready(require('./resource'),function (com) {
     var runMan = require('./sprites/runMan');
     var distance = require('./sprites/distanceDisplay');
 
-    runMan.play();
+    var hitLevel = require('./sprites/hitLevel');
 
     mainStage.addChild(hand);
     mainStage.addChild(foot);
     mainStage.addChild(runMan);
     mainStage.addChild(distance);
-
-    console.log(mainStage.children);
+    mainStage.addChild(hitLevel);
 
     render(mainStage);
 });
 
 var render = function(stage){
+
     function animate() {
 
         stage.children.forEach((function(child){
@@ -45,10 +45,6 @@ var render = function(stage){
                 child.render();
             }
         }));
-
-
-
-
 
         // render the stage container
         renderer.render(stage);

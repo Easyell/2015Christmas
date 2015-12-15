@@ -13,6 +13,8 @@ var text = new PIXI.Text('距离米', {
 text.x = 220;
 text.y = 730;
 
+var canHitMaxDistance = 100;
+
 var renderMaxCount = foot.renderMaxNum;
 var renderCount = renderMaxCount;
 var distance = 10;
@@ -40,10 +42,10 @@ text.render = function () {
 
         runMan.setMode(distance);
 
-
         renderCount = renderMaxCount;
     }
 
+    runMan.canHit = distance <= canHitMaxDistance;
 
     this.text = '距离'+distance+'米';
 };
