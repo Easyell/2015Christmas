@@ -3,6 +3,7 @@
  */
 var sprite = require('./../../sprite');
 
+var handBuild = require('./hand');
 var hitLevel = require('./hitLevel');
 
 var runMan = sprite.getMc({
@@ -36,7 +37,17 @@ runMan.on('touchstart', function () {
 runMan.on('touchend', function () {
     touchDurationStamp = Date.now() - touchDurationStamp;
     touchOn = false;
+
+    console.log('score:',hitLevel.hitScore);
+    if(!hitLevel.visible){
+        handBuild(0).hitFail();
+    }else{
+        handBuild(hitLevel.hitScore).hit();
+    }
+
     hitLevel.hitScore = 0;
+
+
 });
 
 //根据距离差，近大远小
