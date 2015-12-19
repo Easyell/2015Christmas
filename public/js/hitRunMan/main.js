@@ -20,18 +20,20 @@ var ready = require('./../loader');
 ready(require('./resource'),function (com) {
     var mainStage = new PIXI.Container();
 
-    var hand = require('./sprites/hand')(0);
     var foot = require('./sprites/foot');
     var runMan = require('./sprites/runMan');
     var distance = require('./sprites/distanceDisplay');
 
     var hitLevel = require('./sprites/hitLevel');
 
-    mainStage.addChild(hand);
+    var flyFistContainer = require('./sprites/flyFistContainer');
+    var flyFistBuild = require('./sprites/flyFist');
+
     mainStage.addChild(foot);
     mainStage.addChild(runMan);
     mainStage.addChild(distance);
     mainStage.addChild(hitLevel);
+    mainStage.addChild(flyFistContainer);
 
     render(mainStage);
 });

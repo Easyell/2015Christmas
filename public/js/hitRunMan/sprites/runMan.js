@@ -3,7 +3,7 @@
  */
 var sprite = require('./../../sprite');
 
-var handBuild = require('./hand');
+var flyFist = require('./flyFist');
 var hitLevel = require('./hitLevel');
 
 var runMan = sprite.getMc({
@@ -40,9 +40,8 @@ runMan.on('touchend', function () {
 
     console.log('score:',hitLevel.hitScore);
     if(!hitLevel.visible){
-        handBuild(0).hitFail();
     }else{
-        handBuild(hitLevel.hitScore).hit();
+        flyFist(parseInt(hitLevel.hitScore/20),runMan.x,runMan.y);
     }
 
     hitLevel.hitScore = 0;
@@ -59,7 +58,7 @@ runMan.setMode = function (distance) {
     }
     var s = 0.9-distance /1000;
     this.scale.set(s,s);
-    this.y = initialY - distance/10;
+    this.y = initialY - distance/8;
 };
 
 runMan.render = function () {
