@@ -37,13 +37,14 @@ var calculateDistance = function(distance,speed,footSpeed){
 
 text.render = function () {
 
-    if(!--renderCount){
+    if(!--renderCount && ! runMan.out){
 
         distance = calculateDistance(distance,runMan.speed,foot.speed);
 
         runMan.setMode(distance);
 
         renderCount = renderMaxCount;
+
     }
 
     runMan.canHit = distance <= canHitMaxDistance;

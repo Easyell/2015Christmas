@@ -57,7 +57,7 @@ runMan.fly = false;
 runMan.flyToSkyBefore = function () {
     this.direction = spriteTools.makeIdentity([this.x,this.y]);
     console.log(this.direction);
-    runMan.speed = 10;
+    runMan.speed = 20;
     runMan.fly = true;
 }
 runMan.flyToSky = function () {
@@ -65,10 +65,12 @@ runMan.flyToSky = function () {
     this.x -= this.direction[0] * this.speed;
     this.y -= this.direction[1] * this.speed;
     this.rotation += 0.1;
+    this.scale.x -= 0.015;
+    this.scale.y -= 0.015;
 
     //游戏结束
     if(this.x < 0 && this.y <0){
-
+        runMan.out = true;
 
     }
 }

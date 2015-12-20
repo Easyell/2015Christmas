@@ -27,4 +27,4 @@ module.exports = function () {
     return function () {
         flyFistContainer.removeChild(fist);
     }
-}
+};
