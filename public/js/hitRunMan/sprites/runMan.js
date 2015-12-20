@@ -2,8 +2,11 @@
  * Created by zyg on 15/12/10.
  */
 var sprite = require('./../../sprite');
+var spriteTools = require('./../../spriteTools');
 
 var flyFist = require('./flyFist');
+var fist = require('./fist');
+
 var hitLevel = require('./hitLevel');
 
 var runMan = sprite.getMc({
@@ -41,7 +44,8 @@ runMan.on('touchend', function () {
     console.log('score:',hitLevel.hitScore);
     if(!hitLevel.visible){
     }else{
-        flyFist(parseInt(hitLevel.hitScore/20),runMan.x,runMan.y);
+        fist();
+        runMan.flyToSkyBefore();
     }
 
     hitLevel.hitScore = 0;
@@ -49,16 +53,42 @@ runMan.on('touchend', function () {
 
 });
 
+runMan.fly = false;
+runMan.flyToSkyBefore = function () {
+    this.direction = spriteTools.makeIdentity([this.x,this.y]);
+    console.log(this.direction);
+    runMan.speed = 10;
+    runMan.fly = true;
+}
+runMan.flyToSky = function () {
+
+    this.x -= this.direction[0] * this.speed;
+    this.y -= this.direction[1] * this.speed;
+    this.rotation += 0.1;
+
+    //游戏结束
+    if(this.x < 0 && this.y <0){
+
+
+    }
+}
+
 //根据距离差，近大远小
+//最后消失在地平线上
 runMan.setMode = function (distance) {
+    if(this.fly){
+        return ;
+    }
+
     distance = distance * 10;
 
-    if(distance>=600) {
-        distance = 600;
+    if(distance>=1000) {
+        distance = 1000;
     }
-    var s = 0.9-distance /1000;
+    var s = 1-distance /1000;
     this.scale.set(s,s);
     this.y = initialY - distance/8;
+
 };
 
 runMan.render = function () {
@@ -70,11 +100,14 @@ runMan.render = function () {
         hitLevel.y = this.y - hitLevel.radius * hitLevel.scale.y / 2;
 
         hitLevel.hitScore++;
-        hitLevel.score =
         hitLevel.scale.x = 1 + hitLevel.hitScore * 0.05;
         hitLevel.scale.y = 1 + hitLevel.hitScore * 0.05;
     }else{
         hitLevel.visible = false;
+    }
+
+    if(this.fly){
+        this.flyToSky();
     }
 };
 

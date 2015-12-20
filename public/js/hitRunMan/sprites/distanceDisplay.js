@@ -16,6 +16,7 @@ text.y = 730;
 var canHitMaxDistance = 100;
 
 var renderMaxCount = foot.renderMaxNum;
+//计数器，每X帧计算一次
 var renderCount = renderMaxCount;
 var distance = 10;
 

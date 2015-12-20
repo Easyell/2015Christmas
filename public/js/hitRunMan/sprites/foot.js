@@ -59,7 +59,6 @@ foot.renderMaxNum = 10;
 foot.addChild(leftFoot);
 foot.addChild(rightFoot);
 
-
 var renderCount = foot.renderMaxNum;
 
 foot.render = function () {
