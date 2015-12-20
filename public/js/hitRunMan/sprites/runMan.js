@@ -4,6 +4,8 @@
 var sprite = require('./../../sprite');
 var spriteTools = require('./../../spriteTools');
 
+var gold = require('./gold');
+
 var flyFist = require('./flyFist');
 var fist = require('./fist');
 
@@ -59,6 +61,8 @@ runMan.flyToSkyBefore = function () {
     console.log(this.direction);
     runMan.speed = 20;
     runMan.fly = true;
+
+    gold.visible = true;
 }
 runMan.flyToSky = function () {
 
@@ -71,7 +75,6 @@ runMan.flyToSky = function () {
     //游戏结束
     if(this.x < 0 && this.y <0){
         runMan.out = true;
-
     }
 }
 

@@ -10,6 +10,7 @@ var localResource = {
   runMan:'/images/hitRunMan/runMan/runMan.json',
   fist:'/images/hitRunMan/fist/fist.png',
   flyFist:'/images/hitRunMan/flyFist/flyFist.png',
+  gold:'/images/hitRunMan/gold/gold.json',
 };
 
 var resourceMap = {
