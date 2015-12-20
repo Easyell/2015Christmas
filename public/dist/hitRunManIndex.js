@@ -66,17 +66,20 @@
 	ready(__webpack_require__(4),function (com) {
 	    var mainStage = new PIXI.Container();
 	
-	    var hand = __webpack_require__(5)(0);
-	    var foot = __webpack_require__(6);
-	    var runMan = __webpack_require__(7);
-	    var distance = __webpack_require__(9);
+	    var foot = __webpack_require__(5);
+	    var runMan = __webpack_require__(6);
+	    var distance = __webpack_require__(12);
 	
-	    var hitLevel = __webpack_require__(8);
+	    var hitLevel = __webpack_require__(11);
+	
+	    var flyFistContainer = __webpack_require__(9);
+	    var flyFistBuild = __webpack_require__(8);
 	
 	    mainStage.addChild(foot);
 	    mainStage.addChild(runMan);
 	    mainStage.addChild(distance);
 	    mainStage.addChild(hitLevel);
+	    mainStage.addChild(flyFistContainer);
 	
 	    render(mainStage);
 	});
@@ -233,7 +236,7 @@
 	  leftFoot:'/images/hitRunMan/foot/leftFoot.png',
 	  rightFoot:'/images/hitRunMan/foot/rightFoot.png',
 	  runMan:'/images/hitRunMan/runMan/runMan.json',
-	  fist:'/images/hitRunMan/fist/fist.json',
+	  fist:'/images/hitRunMan/fist/fist.png',
 	  flyFist:'/images/hitRunMan/flyFist/flyFist.png',
 	};
 	
@@ -245,80 +248,6 @@
 
 /***/ },
 /* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Created by zyg on 15/12/8.
-	 */
-	var sprite = __webpack_require__(2);
-	var R = __webpack_require__(4);
-	
-	
-	var basicHand = sprite.getIm({
-	    img: R.hand,
-	    'position.set':[640,500],
-	    'scale.x': 0.5,
-	    'scale.y': 0.5,
-	    'anchor.set': [1, 1]
-	});
-	
-	//291,目测300最大
-	//不同的level对应不同的hit动画
-	var scoreLevel = function (score) {
-	    if(score < 50){
-	        return 0;
-	    }
-	
-	    return 0;
-	}
-	
-	var getHand = function(level){
-	
-	    switch(level){
-	        case 0:
-	            return basicHand;
-	    }
-	}
-	
-	var hitAnimation = {
-	    '0': function (hand) {
-	
-	        var c = function(n){
-	            return n - 35;
-	        };
-	        var count = 40;
-	
-	        var si = setInterval(function(){
-	            if(count>0){
-	                hand.rotation = c(--count)/180 * Math.PI;
-	            }else{
-	                hand.rotation = 0;
-	                clearInterval(si);
-	            }
-	        },50);
-	    }
-	}
-	
-	module.exports = function (score) {
-	
-	    var level = scoreLevel(score);
-	
-	    var createdHand = getHand(level);
-	
-	    createdHand.hitFail = function () {
-	        console.log('hit fail');
-	    }
-	
-	    createdHand.hit = function () {
-	        console.log(score);
-	        hitAnimation[level](createdHand);
-	    }
-	
-	    return createdHand;
-	};
-
-/***/ },
-/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -368,9 +297,7 @@
 	        foot.footNum++
 	    }
 	    //@FOR TEST
-	    foot.footNum++
-	
-	    console.log(foot.footNum,foot.speed);
+	    //foot.footNum++
 	});
 	
 	//initial speed
@@ -384,15 +311,14 @@
 	foot.addChild(leftFoot);
 	foot.addChild(rightFoot);
 	
-	
 	var renderCount = foot.renderMaxNum;
 	
 	foot.render = function () {
 	    if(!(--renderCount)){
 	        renderCount = foot.renderMaxNum
 	        //移动速度，基本0.2,要非常快才有0.3。
-	        this.speed = foot.footNum/renderCount * 150;
-	        console.log('speed:' + this.speed);
+	        this.speed = foot.footNum/renderCount * 20;
+	        console.log(this.speed);
 	        foot.footNum = 0;
 	    }
 	};
@@ -402,16 +328,19 @@
 	module.exports = foot;
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Created by zyg on 15/12/10.
 	 */
 	var sprite = __webpack_require__(2);
+	var spriteTools = __webpack_require__(7);
 	
-	var handBuild = __webpack_require__(5);
-	var hitLevel = __webpack_require__(8);
+	var flyFist = __webpack_require__(8);
+	var fist = __webpack_require__(10);
+	
+	var hitLevel = __webpack_require__(11);
 	
 	var runMan = sprite.getMc({
 	    maxFrame:4,
@@ -447,9 +376,9 @@
 	
 	    console.log('score:',hitLevel.hitScore);
 	    if(!hitLevel.visible){
-	        handBuild(0).hitFail();
 	    }else{
-	        handBuild(hitLevel.hitScore).hit();
+	        fist();
+	        runMan.flyToSkyBefore();
 	    }
 	
 	    hitLevel.hitScore = 0;
@@ -457,16 +386,44 @@
 	
 	});
 	
+	runMan.fly = false;
+	runMan.flyToSkyBefore = function () {
+	    this.direction = spriteTools.makeIdentity([this.x,this.y]);
+	    console.log(this.direction);
+	    runMan.speed = 20;
+	    runMan.fly = true;
+	}
+	runMan.flyToSky = function () {
+	
+	    this.x -= this.direction[0] * this.speed;
+	    this.y -= this.direction[1] * this.speed;
+	    this.rotation += 0.1;
+	    this.scale.x -= 0.015;
+	    this.scale.y -= 0.015;
+	
+	    //游戏结束
+	    if(this.x < 0 && this.y <0){
+	        runMan.out = true;
+	
+	    }
+	}
+	
 	//根据距离差，近大远小
+	//最后消失在地平线上
 	runMan.setMode = function (distance) {
+	    if(this.fly){
+	        return ;
+	    }
+	
 	    distance = distance * 10;
 	
-	    if(distance>=600) {
-	        distance = 600;
+	    if(distance>=1000) {
+	        distance = 1000;
 	    }
-	    var s = 0.9-distance /1000;
+	    var s = 1-distance /1000;
 	    this.scale.set(s,s);
-	    this.y = initialY - distance/10;
+	    this.y = initialY - distance/8;
+	
 	};
 	
 	runMan.render = function () {
@@ -478,18 +435,220 @@
 	        hitLevel.y = this.y - hitLevel.radius * hitLevel.scale.y / 2;
 	
 	        hitLevel.hitScore++;
-	        hitLevel.score =
 	        hitLevel.scale.x = 1 + hitLevel.hitScore * 0.05;
 	        hitLevel.scale.y = 1 + hitLevel.hitScore * 0.05;
 	    }else{
 	        hitLevel.visible = false;
+	    }
+	
+	    if(this.fly){
+	        this.flyToSky();
 	    }
 	};
 	
 	module.exports = runMan;
 
 /***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by zyg on 15/11/7.
+	 */
+	var makeIdentity = function(a) {
+	    if(a[0] == 0 && a[1] == 0) {
+	        return [0, 0]
+	    }
+	    var b = Math.pow((Math.pow(a[0], 2) + Math.pow(a[1], 2)), 0.5);
+	    return [a[0] / b , a[1] / b]
+	};
+	
+	var distance = function(x1, y1, x2, y2) {
+	    return Math.pow((Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)), 0.5);
+	}
+	
+	var extend = function(){
+	    arguments = [].slice.call(arguments);
+	    var l = arguments.length;
+	    if(arguments.length>1){
+	        var from = arguments[l-1],
+	          target = arguments[l-2];
+	
+	        for(var k in from){
+	            target[k] = from[k];
+	        }
+	        arguments.pop();
+	
+	        return extend.apply(null,arguments);
+	    }else{
+	        return arguments[0];
+	    }
+	};
+	
+	module.exports = {
+	    makeIdentity:makeIdentity,
+	    distance: distance,
+	    extend:extend
+	};
+
+/***/ },
 /* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Created by zyg on 15/12/19.
+	 */
+	var sprite = __webpack_require__(2);
+	var spriteTools = __webpack_require__(7);
+	
+	var R = __webpack_require__(4);
+	
+	var runMan = __webpack_require__(6);
+	var flyFistContainer = __webpack_require__(9);
+	
+	var remove = null;
+	
+	var fistTrance = function (num,tx,ty) {
+	
+	    var d = num%2 === 0 ?1:-1;
+	
+	    var myX = 320 + Math.ceil(num/2)*90  * d;
+	    var myY = 600;
+	
+	    var myRotation = -Math.tanh((myX-tx)/(myY-ty));
+	
+	    return {
+	        x: myX,
+	        y: myY,
+	        rotation: myRotation
+	    }
+	};
+	
+	var flyFistSpeed = 25;
+	
+	var creator = function (config,tx,ty) {
+	
+	    var flyFist = sprite.getIm({
+	        img: R.flyFist,
+	        'anchor.set': [0.5, 0.5],
+	        'scale.set':[0.25,0.25]
+	    });
+	
+	
+	    var direction = null;
+	    var gapX = config.x-tx;
+	    var gapY = config.y-ty;
+	
+	    direction = spriteTools.makeIdentity([gapX,gapY]);
+	
+	    console.log(direction,config.x,tx);
+	
+	
+	    flyFist.init = function () {;
+	
+	    }
+	
+	    flyFist.render = function () {
+	
+	        this.x -= flyFistSpeed * direction[0];
+	        this.y -= flyFistSpeed * direction[1];
+	
+	
+	        if(this.y - 100 > ty){
+	
+	
+	        }else{
+	            //flyFist.parent.removeChild(this);
+	        }
+	    };
+	
+	    flyFist.position.set(config.x, config.y);
+	    flyFist.rotation = config.rotation;
+	
+	
+	    flyFistContainer.addChild(flyFist);
+	
+	    return function () {
+	        flyFistContainer.removeChild(flyFist);
+	    }
+	};
+	
+	
+	module.exports = function (num,targetX,targetY) {
+	
+	    var arr = [];
+	    var i = 0;
+	
+	    for (; i < num; i++) {
+	        arr.push(creator(fistTrance(i,targetX,targetY),targetX,targetY));
+	    }
+	
+	    return function () {
+	
+	        arr.forEach(function(remove){
+	            remove();
+	        });
+	    }
+	};
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Created by zyg on 15/12/19.
+	 */
+	var sprite = __webpack_require__(2);
+	
+	var flyingContainer = new PIXI.Container();
+	
+	flyingContainer.render = function () {
+	    this.children.forEach(function(child){
+	        if(child.render){
+	            child.render();
+	        }
+	    })
+	}
+	
+	module.exports = flyingContainer;
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Created by zyg on 15/12/20.
+	 */
+	var sprite = __webpack_require__(2);
+	var spriteTools = __webpack_require__(7);
+	
+	var flyFistContainer = __webpack_require__(9);
+	
+	var R = __webpack_require__(4);
+	
+	var fist = sprite.getIm({
+	    img: R.fist,
+	    'position.set':[660,400],
+	    'anchor.set':[1,0.5],
+	    'scale.set':[0.25,0.25]
+	})
+	
+	fist.render = function () {
+	
+	}
+	
+	
+	module.exports = function () {
+	
+	    flyFistContainer.addChild(fist);
+	
+	    return function () {
+	        flyFistContainer.removeChild(fist);
+	    }
+	};
+
+/***/ },
+/* 11 */
 /***/ function(module, exports) {
 
 	/**
@@ -514,14 +673,14 @@
 	module.exports = hitLevel;
 
 /***/ },
-/* 9 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Created by zyg on 15/12/12.
 	 */
-	var runMan = __webpack_require__(7);
-	var foot = __webpack_require__(6);
+	var runMan = __webpack_require__(6);
+	var foot = __webpack_require__(5);
 	
 	var text = new PIXI.Text('距离米', {
 	        font: '32px Arial',
@@ -535,6 +694,7 @@
 	var canHitMaxDistance = 100;
 	
 	var renderMaxCount = foot.renderMaxNum;
+	//计数器，每X帧计算一次
 	var renderCount = renderMaxCount;
 	var distance = 10;
 	
@@ -555,13 +715,14 @@
 	
 	text.render = function () {
 	
-	    if(!--renderCount){
+	    if(!--renderCount && ! runMan.out){
 	
 	        distance = calculateDistance(distance,runMan.speed,foot.speed);
 	
 	        runMan.setMode(distance);
 	
 	        renderCount = renderMaxCount;
+	
 	    }
 	
 	    runMan.canHit = distance <= canHitMaxDistance;

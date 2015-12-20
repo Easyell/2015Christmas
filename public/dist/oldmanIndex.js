@@ -72,10 +72,10 @@
 	    //var deer = require('./sprites/deer');
 	    //deer.play();
 	
-	    var runDeer = __webpack_require__(10);
+	    var runDeer = __webpack_require__(13);
 	    runDeer.play();
 	
-	    var oldman = __webpack_require__(11);
+	    var oldman = __webpack_require__(14);
 	
 	    mainStage.addChild(runDeer);
 	    mainStage.addChild(oldman);
@@ -229,7 +229,10 @@
 /* 7 */,
 /* 8 */,
 /* 9 */,
-/* 10 */
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -251,14 +254,14 @@
 	module.exports = deer;
 
 /***/ },
-/* 11 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Created by zyg on 15/12/3.
 	 */
 	var sprite = __webpack_require__(2);
-	var R = __webpack_require__(12);
+	var R = __webpack_require__(15);
 	
 	var oldman = sprite.getIm({
 	    img: R.oldman,
@@ -272,7 +275,7 @@
 	module.exports = oldman;
 
 /***/ },
-/* 12 */
+/* 15 */
 /***/ function(module, exports) {
 
 	/**
