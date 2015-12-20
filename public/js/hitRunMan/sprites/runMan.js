@@ -46,7 +46,7 @@ runMan.on('touchend', function () {
     console.log('score:',hitLevel.hitScore);
     if(!hitLevel.visible){
     }else{
-        fist();
+        this.removeFist = fist();
         runMan.flyToSkyBefore();
     }
 
@@ -75,6 +75,7 @@ runMan.flyToSky = function () {
     //游戏结束
     if(this.x < 0 && this.y <0){
         runMan.out = true;
+        this.removeFist();
     }
 }
 
