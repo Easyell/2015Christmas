@@ -100,3 +100,5 @@ node_modules
 .idea/encodings.xml
 
 .idea/2015Christmas.iml
+
+public/dist
