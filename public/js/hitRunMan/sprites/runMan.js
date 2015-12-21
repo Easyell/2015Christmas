@@ -9,6 +9,8 @@ var gold = require('./gold');
 var flyFist = require('./flyFist');
 var fist = require('./fist');
 
+var pa = require('./pa');
+
 var hitLevel = require('./hitLevel');
 
 var loading = require('../../../components/loading');
@@ -50,7 +52,6 @@ runMan.on('touchend', function () {
     touchDurationStamp = Date.now() - touchDurationStamp;
     touchOn = false;
 
-    console.log('score:',hitLevel.hitScore);
     if(!hitLevel.visible){
 
     }else{
@@ -94,6 +95,13 @@ runMan.hitted = function (score) {
 
     load(p*100+'%');
 
+    var paX = runMan.x + 40 * Math.random();
+    var paY = runMan.y + 40 * Math.random();
+
+    var removePa = pa(paX,paY,runMan.scale);
+
+    setTimeout(removePa,500);
+
     if(this.hp<0){
         this.flyToSkyBefore();
     }
@@ -130,6 +138,7 @@ runMan.render = function () {
         hitLevel.scale.y = 1 + hitLevel.hitScore * 0.05;
     }else{
         hitLevel.visible = false;
+        hitLevel.scale.set(0,0)
     }
 
     if(this.fly){
