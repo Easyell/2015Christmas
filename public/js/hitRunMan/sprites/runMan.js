@@ -11,6 +11,8 @@ var fist = require('./fist');
 
 var hitLevel = require('./hitLevel');
 
+var loading = require('../../../components/loading');
+
 var runMan = sprite.getMc({
     maxFrame:4,
     preFix:'runMan',
@@ -24,9 +26,14 @@ var runMan = sprite.getMc({
 runMan.play();
 //固定数值
 runMan.speed = 1.5;
+//血量
+runMan.maxHp = 200;
+runMan.hp = 200;
 
 runMan.canHit = false;
 
+
+var load = loading('10%','20px','80%','25px','red','#fff',0,true);
 
 var initialY = 400;
 
@@ -45,14 +52,15 @@ runMan.on('touchend', function () {
 
     console.log('score:',hitLevel.hitScore);
     if(!hitLevel.visible){
+
     }else{
+
         this.removeFist = fist();
-        runMan.flyToSkyBefore();
+
+        runMan.hitted(hitLevel.hitScore);
     }
 
     hitLevel.hitScore = 0;
-
-
 });
 
 runMan.fly = false;
@@ -76,6 +84,18 @@ runMan.flyToSky = function () {
     if(this.x < 0 && this.y <0){
         runMan.out = true;
         this.removeFist();
+    }
+}
+
+runMan.hitted = function (score) {
+    this.hp -= score;
+
+    var p = 1 - this.hp/this.maxHp
+
+    load(p*100+'%');
+
+    if(this.hp<0){
+        this.flyToSkyBefore();
     }
 }
 
