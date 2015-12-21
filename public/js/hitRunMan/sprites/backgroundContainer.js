@@ -10,7 +10,7 @@ var count = 0;
 
 backgroundContainer.configure = function() {
   count = 0;
-  for(var i = 0; i < 3; i ++) {
+  for(var i = 0; i < 4; i ++) {
     var house = houseGen(i);
     backgroundContainer.addChild(house);
     house.updateWithProgress((i + 1) * 0.3);
@@ -18,14 +18,17 @@ backgroundContainer.configure = function() {
 }
 
 backgroundContainer.addNewHouse = function() {
-  var house = require('./house')(parseInt(Math.random() * 3));
-  backgroundContainer.addChild(house);
-  house.updateWithProgress(0);
+  var house = houseGen(parseInt(Math.random() * 3));
+  backgroundContainer.addChildAt(house, 0);
+  house.updateWithProgress(0.3);
 }
 
 backgroundContainer.configure();
 backgroundContainer.render = function () {
     this.children.forEach(function(child){
+      if(child.progress >= 1.49) {
+        backgroundContainer.addNewHouse();
+      }
         if(child.render){
             child.render();
         }

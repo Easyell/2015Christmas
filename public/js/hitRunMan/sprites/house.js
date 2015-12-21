@@ -4,7 +4,6 @@
 
 var sprite = require('../../sprite');
 var R = require('../resource');
-var backgroundContainer = require('./backgroundContainer')
 
 var houseGenerator = function(random) {
   var house = sprite.getIm({
@@ -17,13 +16,12 @@ var houseGenerator = function(random) {
   house.progress = 0;
   house.render = function () {
     this.progress += 0.01;
-    house.x = 250 - 200 * this.progress;
-    house.y = 100 + 300 * this.progress;
+    house.x = 300 - 200 * this.progress * this.progress;
+    house.y = 100 + 300 * this.progress * this.progress;
     house.scale.x = this.progress
     house.scale.y = this.progress
-    if (this.progress >= 0.9) {
+    if (this.progress >= 1.5) {
       this.parent.removeChild(this);
-      backgroundContainer.addNewHouse();
     }
   }
   house.updateWithProgress = function(progress) {
@@ -38,6 +36,6 @@ var houseGenerator = function(random) {
 
 
 
-var map = [R.house1, R.house2, R.house3];
+var map = [R.house1, R.house2, R.house3, R.house2];
 
 module.exports = houseGenerator;
