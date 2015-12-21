@@ -25,12 +25,12 @@ ready(require('./resource'),function (com) {
     var distance = require('./sprites/distanceDisplay');
 
     var gold = require('./sprites/gold');
-
+   var backgroundContainer = require('./sprites/backgroundContainer');
     var hitLevel = require('./sprites/hitLevel');
 
     var flyFistContainer = require('./sprites/flyFistContainer');
-
-    mainStage.addChild(gold);
+  mainStage.addChild(backgroundContainer);
+  mainStage.addChild(gold);
     mainStage.addChild(foot);
     mainStage.addChild(runMan);
     mainStage.addChild(distance);
