@@ -12,6 +12,9 @@ var localResource = {
   flyFist:'/images/hitRunMan/flyFist/flyFist.png',
   gold:'/images/hitRunMan/gold/gold.json',
   pa:'/images/hitRunMan/pa/pa.png',
+  house1:'/images/hitRunMan/house/house1.png',
+  house2:'/images/hitRunMan/house/house2.png',
+  house3:'/images/hitRunMan/house/house3.png',
 };
 
 var resourceMap = {
