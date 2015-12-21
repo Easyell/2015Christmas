@@ -11,6 +11,7 @@ var localResource = {
   fist:'/images/hitRunMan/fist/fist.png',
   flyFist:'/images/hitRunMan/flyFist/flyFist.png',
   gold:'/images/hitRunMan/gold/gold.json',
+  pa:'/images/hitRunMan/pa/pa.png',
 };
 
 var resourceMap = {
