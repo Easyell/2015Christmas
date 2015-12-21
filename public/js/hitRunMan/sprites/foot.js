@@ -51,7 +51,7 @@ rightFoot.on('touchstart', function () {
         leftFoot.gotoAndStop(0);
     }
     //@FOR TEST
-    //foot.footNum++
+    foot.footNum++
 });
 
 //initial speed
@@ -71,8 +71,7 @@ foot.render = function () {
     if(!(--renderCount)){
         renderCount = foot.renderMaxNum
         //移动速度，基本0.2,要非常快才有0.3。
-        this.speed = foot.footNum/renderCount * 20;
-        console.log(this.speed);
+        this.speed = foot.footNum/renderCount * 100;//20;
         foot.footNum = 0;
     }
 };
