@@ -6,16 +6,18 @@ var R = require('../resource');
 
 var foot = new PIXI.Container();
 
-var leftFoot = sprite.getIm({
-    img: R.leftFoot,
+var leftFoot = sprite.getMc({
+    maxFrame:2,
+    preFix:'leftFoot',
     'position.set':[0,1004],
     'scale.x': 1,
     'scale.y': 1,
     'anchor.set': [0, 1]
 });
 
-var rightFoot = sprite.getIm({
-    img: R.rightFoot,
+var rightFoot = sprite.getMc({
+    maxFrame:2,
+    preFix:'rightFoot',
     'position.set':[320,1004],
     'scale.x': 1,
     'scale.y': 1,
@@ -36,6 +38,8 @@ leftFoot.on('touchstart', function () {
         l = false;
         r = true;
         foot.footNum++
+        leftFoot.gotoAndStop(1);
+        rightFoot.gotoAndStop(0);
     }
 });
 rightFoot.on('touchstart', function () {
@@ -43,6 +47,8 @@ rightFoot.on('touchstart', function () {
         l = true;
         r = false;
         foot.footNum++
+        rightFoot.gotoAndStop(1);
+        leftFoot.gotoAndStop(0);
     }
     //@FOR TEST
     //foot.footNum++
