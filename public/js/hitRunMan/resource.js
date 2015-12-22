@@ -18,6 +18,29 @@ var localResource = {
   playBg:'/images/hitRunMan/background/playBackground.png',
 };
 
+Object.defineProperty(localResource,'next',{
+  enumerable:false,
+  value:[{
+    hand:localResource.hand,
+    ttt:localResource.ttt,
+    leftFoot:localResource.leftFoot,
+    rightFoot:localResource.rightFoot,
+    runMan:localResource.runMan,
+    fist:localResource.fist,
+    gold:localResource.gold,
+    pa:localResource.pa,
+    house1:localResource.house1,
+    house2:localResource.house2,
+    house3:localResource.house3,
+  },{
+    flyFist:localResource.flyFist,
+  }]
+})
+
+
+
+
+
 var resourceMap = {
   local:localResource,
 };
