@@ -29,13 +29,13 @@ ready(require('./resource'),function (com) {
     var hitLevel = require('./sprites/hitLevel');
 
     var flyFistContainer = require('./sprites/flyFistContainer');
-  mainStage.addChild(backgroundContainer);
-  mainStage.addChild(gold);
-    mainStage.addChild(foot);
+      mainStage.addChild(backgroundContainer);
+    mainStage.addChild(gold);
     mainStage.addChild(runMan);
     mainStage.addChild(distance);
     mainStage.addChild(hitLevel);
     mainStage.addChild(flyFistContainer);
+    mainStage.addChild(foot);
 
     render(mainStage);
 });

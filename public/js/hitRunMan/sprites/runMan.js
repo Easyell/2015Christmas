@@ -15,10 +15,13 @@ var hitLevel = require('./hitLevel');
 
 var loading = require('../../../components/loading');
 
+var initialY = 930;
+var initialX = 330
+
 var runMan = sprite.getMc({
     maxFrame:4,
     preFix:'runMan',
-    'position.set':[320,400],
+    'position.set':[initialX,initialY],
     'scale.x': 0.5,
     'scale.y': 0.5,
     'anchor.set': [0.5, 0.5],
@@ -36,8 +39,6 @@ runMan.canHit = false;
 
 
 var load = loading('10%','20px','80%','25px','red','#fff',0,true);
-
-var initialY = 400;
 
 var touchDurationStamp = 0;
 var touchOn = false;
@@ -119,9 +120,11 @@ runMan.setMode = function (distance) {
     if(distance>=1000) {
         distance = 1000;
     }
-    var s = 1-distance /1000;
+    var s = 1-distance /1100;
+
     this.scale.set(s,s);
-    this.y = initialY - distance/8;
+    this.x += 3.5;
+    this.y = initialY - distance;
 
 };
 
@@ -130,6 +133,7 @@ runMan.render = function () {
         hitLevel.visible = true;
 
         runMan.parent.addChild(hitLevel);
+
         hitLevel.x = this.x - hitLevel.radius * hitLevel.scale.x;
         hitLevel.y = this.y - hitLevel.radius * hitLevel.scale.y / 2;
 
