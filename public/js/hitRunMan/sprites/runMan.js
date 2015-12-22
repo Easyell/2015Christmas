@@ -16,7 +16,7 @@ var hitLevel = require('./hitLevel');
 var loading = require('../../../components/loading');
 
 var initialY = 930;
-var initialX = 330
+var initialX = 310
 
 var runMan = sprite.getMc({
     maxFrame:4,
@@ -115,17 +115,22 @@ runMan.setMode = function (distance) {
         return ;
     }
 
-    distance = distance * 10;
+    distance = distance * 15;
 
     if(distance>=1000) {
         distance = 1000;
     }
-    var s = 1-distance /1100;
+    var s = 1-distance /1000;
+
+    if(s<0){
+        s = 0;
+    }
 
     this.scale.set(s,s);
-    this.x += 3.5;
+    this.x = initialX + distance/2.2;
     this.y = initialY - distance;
 
+    this.visible = this.y >= 280;
 };
 
 runMan.render = function () {
