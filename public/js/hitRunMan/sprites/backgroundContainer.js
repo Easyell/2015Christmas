@@ -4,23 +4,33 @@
 
 var sprite = require('../../sprite');
 var houseGen = require('./house')
+var R = require('../resource')
 var backgroundContainer = new PIXI.Container();
+
+var playBG = sprite.getIm({
+  img: R.playBg,
+  'anchor.set':[0, 0],
+  'position.set': [0,0],
+  'scale.x': 1,
+  'scale.y': 1
+});
 
 var count = 0;
 
 backgroundContainer.configure = function() {
   count = 0;
-  for(var i = 0; i < 4; i ++) {
+  backgroundContainer.addChild(playBG)
+  for(var i = 0; i < 7; i ++) {
     var house = houseGen(i);
     backgroundContainer.addChild(house);
-    house.updateWithProgress((i + 1) * 0.3);
+    house.updateWithProgress(0.2 + i * 0.2);
   }
 }
 
 backgroundContainer.addNewHouse = function() {
   var house = houseGen(parseInt(Math.random() * 3));
-  backgroundContainer.addChildAt(house, 0);
-  house.updateWithProgress(0.3);
+  backgroundContainer.addChildAt(house, 1);
+  house.updateWithProgress(0.2);
 }
 
 backgroundContainer.configure();
