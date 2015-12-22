@@ -17,6 +17,29 @@ var localResource = {
   house3:'/images/hitRunMan/house/house3.png',
 };
 
+Object.defineProperty(localResource,'next',{
+  enumerable:false,
+  value:[{
+    hand:'/images/hitRunMan/hand/hand.png',
+    ttt:'/images/hitRunMan/hand/ttt.png',
+    leftFoot:'/images/hitRunMan/foot/leftFoot.json',
+    rightFoot:'/images/hitRunMan/foot/rightFoot.json',
+    runMan:'/images/hitRunMan/runMan/runMan.json',
+    fist:'/images/hitRunMan/fist/fist.png',
+    gold:'/images/hitRunMan/gold/gold.json',
+    pa:'/images/hitRunMan/pa/pa.png',
+    house1:'/images/hitRunMan/house/house1.png',
+    house2:'/images/hitRunMan/house/house2.png',
+    house3:'/images/hitRunMan/house/house3.png',
+  },{
+    flyFist:'/images/hitRunMan/flyFist/flyFist.png',
+  }]
+})
+
+
+
+
+
 var resourceMap = {
   local:localResource,
 };
