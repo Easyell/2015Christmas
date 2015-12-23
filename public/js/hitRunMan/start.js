@@ -8,23 +8,14 @@ module.exports = function(render){
   ready(R,function (com) {
     var startStage = new PIXI.Container();
     var sprite = require('../sprite');
-    var title = sprite.getIm({
-      img: R.startTitle,
-      'position.set': [320, 26],
+    var background = sprite.getIm({
+      img: R.startBackground,
+      'position.set': [320, 0],
       'anchor.set': [0.5, 0],
     });
-
     var startSnowMan = require('./sprites/startSnowMan')
-
-    var christmasTree = require('./sprites/christmasTree');
-
-    var land = require('./sprites/snowLand');
-
-    startStage.addChild(land);
-    startStage.addChild(christmasTree)
-    startStage.addChild(title)
+    startStage.addChild(background)
     startStage.addChild(startSnowMan)
-    startStage.addChild(title)
     render(startStage);
   })
 }
