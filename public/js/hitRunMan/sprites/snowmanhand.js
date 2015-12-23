@@ -25,7 +25,6 @@ snowmanhand.handup = function() {
 
 snowmanhand.render = function() {
   if(snowmanhand.status == 1) {
-    console.log(snowmanhand.rotation)
     snowmanhand.rotation -= 0.01
     if(snowmanhand.rotation <= -1.5) {
       snowmanhand.rotation = -1.5

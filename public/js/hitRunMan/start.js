@@ -7,7 +7,7 @@ module.exports = function(render){
   document.querySelector('#bgm').src = R.startBgm;
 
   var ready = require('./../loader');
-  ready(R,function (com) {
+  ready(R.start,function (com) {
     var startStage = new PIXI.Container();
     startStage.customTimer = 0
     var sprite = require('../sprite');

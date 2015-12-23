@@ -2,13 +2,13 @@
  * Created by zyg on 15/12/23.
  */
 
-var resource = require('./resource');
+var R = require('./resource');
 
 module.exports = function (render) {
-    document.querySelector('#bgm').src = resource.gameBgm;
+    document.querySelector('#bgm').src = R.gameBgm;
 
     var ready = require('./../loader');
-    ready(require('./resource'),function (com) {
+    ready(R.game,function (com) {
         var mainStage = new PIXI.Container();
 
         var foot = require('./sprites/foot');
@@ -20,6 +20,8 @@ module.exports = function (render) {
         var hitLevel = require('./sprites/hitLevel');
 
         var flyFistContainer = require('./sprites/flyFistContainer');
+
+
         mainStage.addChild(backgroundContainer);
         mainStage.addChild(gold);
         mainStage.addChild(runMan);
