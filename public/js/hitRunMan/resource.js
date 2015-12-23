@@ -19,7 +19,9 @@ var localResource = {
   start_snowman:'/images/hitRunMan/start_snowman/start_snowman.json',
   startTitle:'/images/hitRunMan/startTitle.png',
   christmasTree:'/images/hitRunMan/christmasTree/christmasTree.png',
-  startBackground:'/images/hitRunMan/startBackground/startBackground.png'
+  startBackground:'/images/hitRunMan/startBackground/startBackground.png',
+  gift:'/images/hitRunMan/gift/gift.json',
+  snowmanhand:'/images/hitRunMan/snowmanhand/snowmanhand.png'
 };
 
 //有next则加载next里的内容。
@@ -42,6 +44,8 @@ Object.defineProperty(localResource,'next',{
     startTitle:localResource.startTitle,
     christmasTree:localResource.christmasTree,
     startBackground:localResource.startBackground,
+    gift:localResource.gift,
+    snowmanhand:localResource.snowmanhand
   },{
     flyFist:localResource.flyFist,
   }]

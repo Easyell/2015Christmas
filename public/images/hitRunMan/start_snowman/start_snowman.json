@@ -2,43 +2,43 @@
 
 "start_snowman1.png":
 {
-	"frame": {"x":473,"y":662,"w":469,"h":658},
+	"frame": {"x":389,"y":1163,"w":385,"h":658},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":469,"h":658},
-	"sourceSize": {"w":469,"h":658}
+	"spriteSourceSize": {"x":0,"y":0,"w":385,"h":658},
+	"sourceSize": {"w":385,"h":658}
 },
 "start_snowman2.png":
 {
-	"frame": {"x":473,"y":2,"w":469,"h":658},
+	"frame": {"x":2,"y":1163,"w":385,"h":658},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":469,"h":658},
-	"sourceSize": {"w":469,"h":658}
+	"spriteSourceSize": {"x":0,"y":0,"w":385,"h":658},
+	"sourceSize": {"w":385,"h":658}
 },
 "start_snowman3.png":
 {
-	"frame": {"x":2,"y":1322,"w":469,"h":658},
+	"frame": {"x":2,"y":776,"w":385,"h":658},
 	"rotated": true,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":469,"h":658},
-	"sourceSize": {"w":469,"h":658}
+	"spriteSourceSize": {"x":0,"y":0,"w":385,"h":658},
+	"sourceSize": {"w":385,"h":658}
 },
 "start_snowman4.png":
 {
-	"frame": {"x":2,"y":662,"w":469,"h":658},
-	"rotated": false,
+	"frame": {"x":2,"y":389,"w":385,"h":658},
+	"rotated": true,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":469,"h":658},
-	"sourceSize": {"w":469,"h":658}
+	"spriteSourceSize": {"x":0,"y":0,"w":385,"h":658},
+	"sourceSize": {"w":385,"h":658}
 },
 "start_snowman5.png":
 {
-	"frame": {"x":2,"y":2,"w":469,"h":658},
-	"rotated": false,
+	"frame": {"x":2,"y":2,"w":385,"h":658},
+	"rotated": true,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":469,"h":658},
-	"sourceSize": {"w":469,"h":658}
+	"spriteSourceSize": {"x":0,"y":0,"w":385,"h":658},
+	"sourceSize": {"w":385,"h":658}
 }},
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker ",
@@ -47,6 +47,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:ea38680b207c6a0e0c27d17045ea9310:1/1$"
+	"smartupdate": "$TexturePacker:SmartUpdate:5787de6d4fa539df7b2336fbe6c5de75:1/1$"
 }
 }

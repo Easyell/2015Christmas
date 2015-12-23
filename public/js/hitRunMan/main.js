@@ -20,7 +20,9 @@ document.body.appendChild(renderer.view);
 var render = function(stage){
 
     function animate() {
-
+        if(stage.render) {
+          stage.render()
+        }
         stage.children.forEach((function(child){
             if(child.render){
                 child.render();

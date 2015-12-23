@@ -12,7 +12,6 @@ var houseGenerator = function(random) {
     'position.set': [100,100],
     'scale.x': 1,
     'scale.y': 1
-
   });
   house.progress = 0;
   house.render = function () {
