@@ -2,7 +2,10 @@
  * Created by zyg on 15/12/23.
  */
 
+var resource = require('./resource');
+
 module.exports = function (render) {
+    document.querySelector('#bgm').src = resource.gameBgm;
 
     var ready = require('./../loader');
     ready(require('./resource'),function (com) {

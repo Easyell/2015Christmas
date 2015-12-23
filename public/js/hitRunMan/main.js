@@ -39,4 +39,4 @@ document.body.appendChild(renderer.view);
 
 require('./start')(render)
 //require('./game')(render);
-document.querySelector('#bgm').src = resource.startBgm
+
