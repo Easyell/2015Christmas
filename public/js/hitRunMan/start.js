@@ -12,12 +12,15 @@ module.exports = function(render){
       img: R.startTitle,
       'position.set': [320, 26],
       'anchor.set': [0.5, 0],
-    })
+    });
+
     var startSnowMan = require('./sprites/startSnowMan')
 
     var christmasTree = require('./sprites/christmasTree');
 
+    var land = require('./sprites/snowLand');
 
+    startStage.addChild(land);
     startStage.addChild(christmasTree)
     startStage.addChild(title)
     startStage.addChild(startSnowMan)
