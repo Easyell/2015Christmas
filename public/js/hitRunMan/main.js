@@ -29,7 +29,7 @@ ready(require('./resource'),function (com) {
     var hitLevel = require('./sprites/hitLevel');
 
     var flyFistContainer = require('./sprites/flyFistContainer');
-      mainStage.addChild(backgroundContainer);
+    mainStage.addChild(backgroundContainer);
     mainStage.addChild(gold);
     mainStage.addChild(runMan);
     mainStage.addChild(distance);
@@ -38,6 +38,15 @@ ready(require('./resource'),function (com) {
     mainStage.addChild(foot);
 
     render(mainStage);
+
+    setTimeout(function () {
+
+        //var p = require('../../components/progress');
+        //p({
+        //    background:'blue'
+        //})
+
+    },3000)
 });
 
 var render = function(stage){

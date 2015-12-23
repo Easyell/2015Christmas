@@ -8,13 +8,16 @@ var setStyle = function (node,style) {
     for(var k in style){
         node.style[k] = style[k];
     }
-
     return node;
 };
 
 var body = document.querySelector('body');
 
-module.exports = function (x, y, width,height,bg,color,initialPercent) {
+module.exports = function (config,initialPercent,container) {
+    if(!container){
+        container = body;
+    }
+
 
     var loadingBox = document.createElement('div');
     var loading = document.createElement('div');
@@ -24,26 +27,26 @@ module.exports = function (x, y, width,height,bg,color,initialPercent) {
 
     loadingBox = setStyle(loadingBox,{
         position:'absolute',
-        left:x,
-        top:y,
-        width:width,
-        height:height,
-        backgroundColor:bg,
+        left:config.x,
+        top:config.y,
+        width:config.width,
+        height:config.height,
+        backgroundColor:config.bg,
         overflow:'hidden',
         border:'1px solid #f0f0f0',
-        borderRadius:parseInt(height)/2 + 'px'
+        borderRadius:parseInt(config.height)/2 + 'px'
     });
 
     loading = setStyle(loading,{
         width:initialPercent,
         height:'100%',
         transition:'all 0.3s',
-        backgroundColor:color
+        backgroundColor:config.loadColor
     });
 
     loadingBox.appendChild(loading);
 
-    body.appendChild(loadingBox);
+    container.appendChild(loadingBox);
 
     return function (percent) {
 

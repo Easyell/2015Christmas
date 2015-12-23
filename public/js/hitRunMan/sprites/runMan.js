@@ -30,7 +30,7 @@ var runMan = sprite.getMc({
 });
 runMan.play();
 //固定数值
-runMan.speed = 1.5;
+runMan.speed = 1.2;
 //血量
 runMan.maxHp = 200;
 runMan.hp = 200;
@@ -38,7 +38,14 @@ runMan.hp = 200;
 runMan.canHit = false;
 
 
-var load = loading('10%','20px','80%','25px','red','#fff',0,true);
+var load = loading({
+    x:'10%',
+    y:'20px',
+    width:'80%',
+    height:'25px',
+    bg:'red',
+    loadColor:'#fff'
+},0);
 
 var touchDurationStamp = 0;
 var touchOn = false;

@@ -21,7 +21,7 @@ var renderCount = renderMaxCount;
 var distance = 10;
 
 var calculateDistance = function(distance,speed,footSpeed){
-    var gap = (speed - footSpeed ) * 2;
+    var gap = (speed - footSpeed ) ;
 
     distance = parseFloat(distance);
 
