@@ -18,6 +18,8 @@ var localResource = {
   playBg:'/images/hitRunMan/background/playBackground.png',
 };
 
+//有next则加载next里的内容。
+//先加载第0个，等第0个都完了，加载剩余的
 Object.defineProperty(localResource,'next',{
   enumerable:false,
   value:[{
