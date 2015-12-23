@@ -32,6 +32,9 @@ module.exports = function(render){
         snowmanhand.handup()
         gift.up()
       }
+      if(snowmanhand.status == 4) {
+        require('./game')(render)
+      }
     }
     render(startStage);
   })
