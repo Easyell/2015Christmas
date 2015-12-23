@@ -15,7 +15,14 @@ module.exports = function(render){
     });
     startStage.addChild(title)
     var startSnowMan = require('./sprites/startSnowMan')
+
+    var christmasTree = require('./sprites/christmasTree');
+
+
+    startStage.addChild(christmasTree)
     startStage.addChild(startSnowMan)
+
+
     render(startStage);
   })
 }
