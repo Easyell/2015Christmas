@@ -1,6 +1,6 @@
 var common = require('./../common');
 var sprite = require('./../sprite');
-
+var resource = require('./resource');
 var renderer;
 var r = common.isSupportWebGL();
 if(r){
@@ -14,8 +14,6 @@ if(r){
         }
     );
 }
-document.body.appendChild(renderer.view);
-
 
 var render = function(stage){
 
@@ -37,5 +35,8 @@ var render = function(stage){
     animate();
 };
 
+document.body.appendChild(renderer.view);
+
 require('./start')(render)
 //require('./game')(render);
+document.querySelector('#bgm').src = resource.startBgm

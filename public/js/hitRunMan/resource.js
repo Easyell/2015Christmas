@@ -51,6 +51,16 @@ Object.defineProperty(localResource,'next',{
   }]
 })
 
+Object.defineProperty(localResource,'startBgm',{
+  enumerable:false,
+  value:'/audio/start_bgm.mp3'
+})
+
+Object.defineProperty(localResource,'gameBgm',{
+  enumerable:false,
+  value:'/audio/hot_run.mp3'
+})
+
 
 
 
