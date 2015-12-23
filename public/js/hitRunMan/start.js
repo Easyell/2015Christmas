@@ -10,8 +10,8 @@ module.exports = function(render){
     var sprite = require('../sprite');
     var title = sprite.getIm({
       img: R.startTitle,
-      'position.set':[320,26],
-      'anchor.set':[0.5,0],
+      'position.set': [320, 26],
+      'anchor.set': [0.5, 0],
     })
     var startSnowMan = require('./sprites/startSnowMan')
 
@@ -19,6 +19,7 @@ module.exports = function(render){
 
 
     startStage.addChild(christmasTree)
+    startStage.addChild(title)
     startStage.addChild(startSnowMan)
     startStage.addChild(title)
     render(startStage);
