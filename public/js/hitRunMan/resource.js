@@ -16,7 +16,8 @@ var localResource = {
   house2:'/images/hitRunMan/house/house2.png',
   house3:'/images/hitRunMan/house/house3.png',
   playBg:'/images/hitRunMan/background/playBackground.png',
-  start_snowman:'/images/hitRunMan/runMan/start_snowman.json'
+  start_snowman:'/images/hitRunMan/runMan/start_snowman.json',
+  startTitle:'/images/hitRunMan/startTitle.png'
 };
 
 //有next则加载next里的内容。
@@ -35,7 +36,8 @@ Object.defineProperty(localResource,'next',{
     house1:localResource.house1,
     house2:localResource.house2,
     house3:localResource.house3,
-    start_snowman:localResource.start_snowman
+    start_snowman:localResource.start_snowman,
+    startTitle:localResource.startTitle
   },{
     flyFist:localResource.flyFist,
   }]
