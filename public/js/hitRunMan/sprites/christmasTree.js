@@ -19,12 +19,12 @@ var create = function (x, y) {
 
 var treeContainer = new PIXI.Container();
 
-treeContainer.addChild(create(120,390));
-treeContainer.addChild(create(340,350));
-treeContainer.addChild(create(550,390));
-treeContainer.addChild(create(10 ,600));
-treeContainer.addChild(create(220,600));
-treeContainer.addChild(create(430,600));
-treeContainer.addChild(create(620,600));
+treeContainer.addChild(create(110,580));
+treeContainer.addChild(create(340,450));
+treeContainer.addChild(create(550,580));
+treeContainer.addChild(create(10 ,800));
+treeContainer.addChild(create(180,800));
+treeContainer.addChild(create(460,800));
+treeContainer.addChild(create(620,800));
 
 module.exports = treeContainer;

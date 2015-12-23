@@ -13,13 +13,13 @@ module.exports = function(render){
       'position.set':[320,26],
       'anchor.set':[0.5,0],
     });
-    startStage.addChild(title)
     var startSnowMan = require('./sprites/startSnowMan')
 
     var christmasTree = require('./sprites/christmasTree');
 
 
     startStage.addChild(christmasTree)
+    startStage.addChild(title)
     startStage.addChild(startSnowMan)
 
 
