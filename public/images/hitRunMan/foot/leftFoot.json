@@ -1,6 +1,6 @@
 {"frames": {
 
-"leftFoot1.png":
+"leftFoot2.png":
 {
 	"frame": {"x":324,"y":2,"w":320,"h":160},
 	"rotated": true,
@@ -8,7 +8,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":320,"h":160},
 	"sourceSize": {"w":320,"h":160}
 },
-"leftFoot2.png":
+"leftFoot1.png":
 {
 	"frame": {"x":2,"y":2,"w":320,"h":160},
 	"rotated": false,
@@ -23,6 +23,6 @@
 	"format": "RGBA8888",
 	"size": {"w":512,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:0584090e80a450c6c0ab2e866f39c2dc:1/1$"
+	"smartupdate": "$TexturePacker:SmartUpdate:bb7aaba25bbf88d78a0d0c52389fa5ce:1/1$"
 }
 }

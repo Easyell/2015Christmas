@@ -36,7 +36,6 @@ var houseGenerator = function(random) {
 }
 
 
-
 var map = [R.house1, R.house2, R.house3, R.house2, R.house1, R.house3, R.house2, R.house1, R.house3];
 
 module.exports = houseGenerator;
