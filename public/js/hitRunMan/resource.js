@@ -38,11 +38,8 @@ Object.defineProperty(localResource,'next',{
     house2:localResource.house2,
     house3:localResource.house3,
     start_snowman:localResource.start_snowman,
-<<<<<<< HEAD
-    startTitle:localResource.startTitle
-=======
+    startTitle:localResource.startTitle,
     christmasTree:localResource.christmasTree
->>>>>>> fb65b42473bf700c94e0814d6d66fa75e44ff020
   },{
     flyFist:localResource.flyFist,
   }]

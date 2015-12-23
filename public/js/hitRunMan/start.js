@@ -12,8 +12,7 @@ module.exports = function(render){
       img: R.startTitle,
       'position.set':[320,26],
       'anchor.set':[0.5,0],
-    });
-    startStage.addChild(title)
+    })
     var startSnowMan = require('./sprites/startSnowMan')
 
     var christmasTree = require('./sprites/christmasTree');
@@ -21,8 +20,7 @@ module.exports = function(render){
 
     startStage.addChild(christmasTree)
     startStage.addChild(startSnowMan)
-
-
+    startStage.addChild(title)
     render(startStage);
   })
 }

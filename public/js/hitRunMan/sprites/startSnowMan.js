@@ -4,7 +4,7 @@
 var sprite = require('../../sprite');
 
 var startSnowMan = sprite.getMc({
-  maxFrame:8,
+  maxFrame:5,
   preFix:'start_snowman',
   'position.set':[320,600],
   'anchor.set':[0.5,0.5],
