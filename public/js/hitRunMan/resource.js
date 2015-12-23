@@ -35,6 +35,7 @@ Object.defineProperty(localResource,'next',{
     house1:localResource.house1,
     house2:localResource.house2,
     house3:localResource.house3,
+    start_snowman:localResource.start_snowman
   },{
     flyFist:localResource.flyFist,
   }]
