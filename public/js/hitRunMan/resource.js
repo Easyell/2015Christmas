@@ -16,6 +16,7 @@ var localResource = {
   house2:'/images/hitRunMan/house/house2.png',
   house3:'/images/hitRunMan/house/house3.png',
   playBg:'/images/hitRunMan/background/playBackground.png',
+  start_snowman:'/images/hitRunMan/runMan/start_snowman.json'
 };
 
 //有next则加载next里的内容。

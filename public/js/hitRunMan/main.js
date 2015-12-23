@@ -35,4 +35,5 @@ var render = function(stage){
     animate();
 };
 
-require('./game')(render);
+require('./start')(render)
+//require('./game')(render);
