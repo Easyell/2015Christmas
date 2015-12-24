@@ -5,6 +5,8 @@
 var R = require('./resource');
 var isReady = false;
 module.exports = function (render, success, score) {
+    document.querySelector('#loadingBox').remove();
+
     var readyFn = function () {
         isReady = true;
 
