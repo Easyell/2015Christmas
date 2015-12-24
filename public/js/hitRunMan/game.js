@@ -26,7 +26,7 @@ module.exports = function (render) {
 
         gold.off('touchstart');
         gold.on('touchstart', function () {
-           require('./gameover')(render);
+           require('./gameover')(render, true, foot.speed * 10);
             bgm.pause();
         });
 
