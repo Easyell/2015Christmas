@@ -21,6 +21,7 @@ var localResource = {
   gift:'/images/hitRunMan/gift/gift.json',
   snowmanhand:'/images/hitRunMan/snowmanhand/snowmanhand.png',
   endBg:'/images/hitRunMan/background/endSign.png',
+  howToShare:'/images/hitRunMan/background/howToShare.png',
   playAgain:'/images/hitRunMan/playAgain/playAgain.png',
   shareButton:'/images/hitRunMan/playAgain/share.png',
   resultSuccess:'/images/hitRunMan/playAgain/resultSuccess.png',
@@ -48,6 +49,7 @@ var localResource = {
   },
   end:{
     endBg:'/images/hitRunMan/background/endSign.png',
+    howToShare:'/images/hitRunMan/background/howToShare.png',
   }
 };
 

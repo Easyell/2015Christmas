@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:7301/public/dist";
+/******/ 	__webpack_require__.p = "http://192.168.1.100:7301/public/dist";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -65,17 +65,17 @@
 	}
 	document.body.appendChild(renderer.view);
 	
-	var ready = __webpack_require__(3);
+	var ready = __webpack_require__(7);
 	ready(function (com) {
 	    var mainStage = new PIXI.Container();
 	
 	    //var deer = require('./sprites/deer');
 	    //deer.play();
 	
-	    var runDeer = __webpack_require__(13);
+	    var runDeer = __webpack_require__(8);
 	    runDeer.play();
 	
-	    var oldman = __webpack_require__(14);
+	    var oldman = __webpack_require__(9);
 	
 	    mainStage.addChild(runDeer);
 	    mainStage.addChild(oldman);
@@ -195,19 +195,47 @@
 	};
 
 /***/ },
-/* 3 */
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ function(module, exports) {
 
 	/**
 	 * Created by zyg on 15/11/7.
 	 */
 	
+	var loadOthers = function (loader,next) {
+	    if(next && next.length>1){
+	        next = next.slice(1).forEach(function (source) {
+	            for(var k in source){
+	                loader.add(k,source[k]);
+	            }
+	        });
+	
+	        loader.load();
+	    }
+	}
+	
 	module.exports = function (source,cb) {
 	
 	    var loader = PIXI.loader; // pixi exposes a premade instance for you to use.
 	
-	    for (var k in source) {
-	        loader.add(k, source[k]);
+	    var k = 0;
+	
+	    if(source.next){
+	
+	        var firstSource = source.next[0];
+	
+	        for(k in firstSource){
+	            loader.add(k, firstSource[k]);
+	        }
+	
+	    }else{
+	        for (k in source) {
+	            loader.add(k, source[k]);
+	        }
 	    }
 	
 	    loader.on('progress', function (a, b) {
@@ -217,22 +245,16 @@
 	    loader.once('complete', function(){
 	        console.log('load done');
 	        cb();
+	        setTimeout(function () {
+	            loadOthers(loader,source.next);
+	        },5000);
 	    });
 	
 	    loader.load();
 	};
 
 /***/ },
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -254,14 +276,14 @@
 	module.exports = deer;
 
 /***/ },
-/* 14 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Created by zyg on 15/12/3.
 	 */
 	var sprite = __webpack_require__(2);
-	var R = __webpack_require__(15);
+	var R = __webpack_require__(10);
 	
 	var oldman = sprite.getIm({
 	    img: R.oldman,
@@ -275,7 +297,7 @@
 	module.exports = oldman;
 
 /***/ },
-/* 15 */
+/* 10 */
 /***/ function(module, exports) {
 
 	/**

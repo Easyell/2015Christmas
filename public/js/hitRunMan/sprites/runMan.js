@@ -22,8 +22,7 @@ var runMan = sprite.getMc({
     maxFrame:4,
     preFix:'runMan',
     'position.set':[initialX,initialY],
-    'scale.x': 0.5,
-    'scale.y': 0.5,
+    'scale.set': [0.5,0.5],
     'anchor.set': [0.5, 0.5],
     'animationSpeed':0.15,
     'loop':true
@@ -38,15 +37,6 @@ runMan.hp = 200;
 runMan.canHit = false;
 
 
-var load = loading({
-    x:'10%',
-    y:'20px',
-    width:'80%',
-    height:'25px',
-    bg:'red',
-    loadColor:'#fff'
-},0);
-
 var touchDurationStamp = 0;
 var touchOn = false;
 
@@ -56,7 +46,7 @@ runMan.on('touchstart', function () {
     touchOn = true;
     hitLevel.hitScore = 0;
 });
-runMan.on('touchend', function () {
+document.querySelector('body').addEventListener('touchend', function () {
     touchDurationStamp = Date.now() - touchDurationStamp;
     touchOn = false;
 
@@ -64,18 +54,17 @@ runMan.on('touchend', function () {
 
     }else{
 
-        this.removeFist = fist();
-
         runMan.hitted(hitLevel.hitScore);
     }
 
     hitLevel.hitScore = 0;
 });
 
+
+
 runMan.fly = false;
 runMan.flyToSkyBefore = function () {
     this.direction = spriteTools.makeIdentity([this.x,this.y]);
-    console.log(this.direction);
     runMan.speed = 20;
     runMan.fly = true;
 
@@ -91,17 +80,17 @@ runMan.flyToSky = function () {
 
     //游戏结束
     if(this.x < 0 && this.y <0){
+
         runMan.out = true;
-        this.removeFist();
     }
 }
 
 runMan.hitted = function (score) {
     this.hp -= score;
 
-    var p = 1 - this.hp/this.maxHp
+    var p = 1 - this.hp/this.maxHp;
 
-    load(p*100+'%');
+    var remove = this.load(p*100+'%');
 
     var paX = runMan.x + 40 * Math.random();
     var paY = runMan.y + 40 * Math.random();
@@ -112,6 +101,7 @@ runMan.hitted = function (score) {
 
     if(this.hp<0){
         this.flyToSkyBefore();
+        remove();
     }
 }
 
@@ -140,6 +130,27 @@ runMan.setMode = function (distance) {
     this.visible = this.y >= 280;
 };
 
+runMan.init = function () {
+    this.speed = 3.0;
+    this.hp = this.maxHp;
+    this.x = initialX;
+    this.y = initialY;
+    this.fly = false;
+    this.scale.set(0.5,0.5);
+    this.rotation = 0;
+    this.out = false;
+
+    this.load = loading({
+        x:'10%',
+        y:'20px',
+        width:'80%',
+        height:'25px',
+        bg:'red',
+        loadColor:'#fff'
+    },0);
+
+}
+
 runMan.render = function () {
     if(this.canHit && touchOn){
         hitLevel.visible = true;
@@ -154,7 +165,7 @@ runMan.render = function () {
         hitLevel.scale.y = 1 + hitLevel.hitScore * 0.05;
     }else{
         hitLevel.visible = false;
-        hitLevel.scale.set(0,0)
+        hitLevel.scale.set(0,0);
     }
 
     if(this.fly){

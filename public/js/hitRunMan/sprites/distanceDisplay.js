@@ -20,6 +20,7 @@ var renderMaxCount = foot.renderMaxNum;
 var renderCount = renderMaxCount;
 var distance = 10;
 
+
 var calculateDistance = function(distance,speed,footSpeed){
     var gap = (speed - footSpeed ) ;
 
@@ -35,6 +36,10 @@ var calculateDistance = function(distance,speed,footSpeed){
     return distance;
 };
 
+text.init = function () {
+    distance = 10;
+}
+
 text.render = function () {
 
     if(!--renderCount && ! runMan.out){
@@ -42,9 +47,9 @@ text.render = function () {
         distance = calculateDistance(distance,runMan.speed,foot.speed);
 
         runMan.setMode(distance);
-
+    }
+    if(renderCount === 0){
         renderCount = renderMaxCount;
-
     }
 
     runMan.canHit = distance <= canHitMaxDistance;

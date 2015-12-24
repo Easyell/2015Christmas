@@ -21,6 +21,7 @@ var render = function(stage){
         if(stage.render) {
           stage.render()
         }
+
         stage.children.forEach((function(child){
             if(child.render){
                 child.render();
