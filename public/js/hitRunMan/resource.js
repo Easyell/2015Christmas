@@ -23,6 +23,8 @@ var localResource = {
   endBg:'/images/hitRunMan/background/endSign.png',
   playAgain:'/images/hitRunMan/playAgain/playAgain.png',
   shareButton:'/images/hitRunMan/playAgain/share.png',
+  resultSuccess:'/images/hitRunMan/playAgain/resultSuccess.png',
+  resultFail:'/images/hitRunMan/playAgain/resultFail.png',
   game:{
     leftFoot:'/images/hitRunMan/foot/leftFoot.json',
     rightFoot:'/images/hitRunMan/foot/rightFoot.json',

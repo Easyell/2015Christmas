@@ -19,10 +19,12 @@ module.exports = function (render) {
     });
   text.x = 180;
   text.y = 230;
+  var result = require('./sprites/result')(true)
   container.addChild(sign)
   container.addChild(playAgain)
   container.addChild(share);
   container.addChild(text)
+  container.addChild(result)
 
     render(container);
 };
