@@ -23,7 +23,7 @@ backgroundContainer.configure = function() {
   for(var i = 0; i < 3; i ++) {
     var house = houseGen(i);
     backgroundContainer.addChild(house);
-    house.updateWithProgress(0.2 + i * 0.4);
+    house.updateWithProgress(0.3 + i * 0.4);
   }
 }
 
