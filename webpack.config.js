@@ -24,13 +24,22 @@ list.filter(function(name){
 });
 
 
+
 var uglify = new webpack.optimize.UglifyJsPlugin({
   compress: {
     warnings: false
   }
 });
 
-var plugins = [];
+var definePlugin = new webpack.DefinePlugin({
+  env:{
+    isDevelopment:process.env.NODE_ENV !== 'product'
+  }
+
+});
+
+var plugins = [definePlugin];
+
 
 if(process.env.NODE_ENV === 'product'){
   plugins.push(uglify);

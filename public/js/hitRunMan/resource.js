@@ -111,4 +111,8 @@ var resourceMap = {
   cdn1:cdn1Resource
 };
 
-module.exports = resourceMap['local'] || resourceMap['local'];
+if(env.isDevelopment){
+  resourcePosition = 'local';
+}
+
+module.exports = resourceMap[resourcePosition] || resourceMap['local'];
