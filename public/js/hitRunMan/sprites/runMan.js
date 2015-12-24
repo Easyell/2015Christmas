@@ -128,7 +128,7 @@ runMan.setMode = function (distance) {
 };
 
 runMan.init = function () {
-    this.speed = 3.0;
+    this.speed = 5.0;
     this.hp = this.maxHp;
     this.x = initialX;
     this.y = initialY;
