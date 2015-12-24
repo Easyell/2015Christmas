@@ -12,7 +12,7 @@ var hitLevel = require('./hitLevel');
 
 var loading = require('../../../components/loading');
 
-var initialY = 830;
+var initialY = 750;
 var initialX = 310;
 
 var runMan = sprite.getMc({
