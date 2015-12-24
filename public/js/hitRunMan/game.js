@@ -23,11 +23,19 @@ module.exports = function (render) {
         var gold = require('./sprites/gold');
         var backgroundContainer = require('./sprites/backgroundContainer');
         var hitLevel = require('./sprites/hitLevel');
-
+      var text = new PIXI.Text('点击左右脚追上圣诞老贼抢回礼物，\n' +
+      '追上后点击圣诞老人就可以打他，\n顶部有血条', {
+        font: '30px Arial',
+        fill: 0x666666,
+        align: 'left'
+      })
+      text.x = 0;
+      text.y = 90;
         gold.off('touchstart');
         gold.on('touchstart', function () {
             mainStage.end(true);
         });
+      text.alpha = 0.8
 
         runMan.init();
         gold.init();
@@ -45,7 +53,7 @@ module.exports = function (render) {
         mainStage.addChild(distance);
         mainStage.addChild(hitLevel);
         mainStage.addChild(foot);
-
+        mainStage.addChild(text);
         render(mainStage);
     }
 
