@@ -92,7 +92,7 @@ runMan.hitted = function (score) {
     var paX = runMan.x + 40 * Math.random();
     var paY = runMan.y + 40 * Math.random();
 
-    var removePa = pa(paX,paY,runMan.scale);
+    var removePa = pa(this.parent,paX,paY,runMan.scale);
 
     setTimeout(removePa,500);
 

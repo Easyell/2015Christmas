@@ -38,8 +38,8 @@ var render = function(stage){
 
 document.body.appendChild(renderer.view);
 
-require('./start')(render)
+//require('./start')(render)
 //require('./game')(render);
-//require('./gameOver')(render);
+require('./gameover')(render);
 
 

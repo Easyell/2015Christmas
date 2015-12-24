@@ -15,15 +15,15 @@ pa.render = function () {
 
 }
 
-module.exports = function (x,y,scale) {
+module.exports = function (container,x,y,scale) {
 
     pa.x = x;
     pa.y = y;
     pa.scale.set(scale.x,scale.y);
 
-    flyFistContainer.addChild(pa);
+    container.addChild(pa);
 
     return function () {
-        flyFistContainer.removeChild(pa);
+        container.removeChild(pa);
     }
 };

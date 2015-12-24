@@ -45,6 +45,9 @@ var localResource = {
     playBg:'/images/hitRunMan/background/playBackground.png',
   },
   end:{
+    resultSuccess:'/images/hitRunMan/playAgain/resultSuccess.png',
+    resultFail:'/images/hitRunMan/playAgain/resultFail.png',
+    endSign:'//images/hitRunMan/background/endSign.png',
     howToShare:'/images/hitRunMan/background/howToShare.png',
   }
 };
@@ -71,6 +74,7 @@ var cdn1Resource = {
   shareButton:'http://7u2min.com1.z0.glb.clouddn.com/Users/zyg/Documents/2015Christmas/uploadDir/1512250131/playAgain/share.png',
   resultSuccess:'http://7u2min.com1.z0.glb.clouddn.com/Users/zyg/Documents/2015Christmas/uploadDir/1512250131/playAgain/resultSuccess.png',
   resultFail:'http://7u2min.com1.z0.glb.clouddn.com/Users/zyg/Documents/2015Christmas/uploadDir/1512250131/playAgain/resultFail.png',
+  endSign:'http://7u2min.com1.z0.glb.clouddn.com/Users/zyg/Documents/2015Christmas/uploadDir/1512250131/background/endSign.png',
 
   startBgm:'http://7u2min.com1.z0.glb.clouddn.com/Users/zyg/Documents/2015Christmas/uploadDir/1512250131/start_bgm.mp3',
   gameBgm:'http://7u2min.com1.z0.glb.clouddn.com/Users/zyg/Documents/2015Christmas/uploadDir/1512250131/hot_run.mp3',
@@ -97,6 +101,7 @@ var cdn1Resource = {
     resultSuccess:'http://7u2min.com1.z0.glb.clouddn.com/Users/zyg/Documents/2015Christmas/uploadDir/1512250131/playAgain/resultSuccess.png',
     resultFail:'http://7u2min.com1.z0.glb.clouddn.com/Users/zyg/Documents/2015Christmas/uploadDir/1512250131/playAgain/resultFail.png',
     howToShare:'http://7u2min.com1.z0.glb.clouddn.com/Users/zyg/Documents/2015Christmas/uploadDir/1512250131/background/howToShare.png',
+    endSign:'http://7u2min.com1.z0.glb.clouddn.com/Users/zyg/Documents/2015Christmas/uploadDir/1512250131/background/endSign.png',
   }
 };
 
