@@ -6,9 +6,6 @@ var spriteTools = require('./../../spriteTools');
 
 var gold = require('./gold');
 
-var flyFist = require('./flyFist');
-var fist = require('./fist');
-
 var pa = require('./pa');
 
 var hitLevel = require('./hitLevel');

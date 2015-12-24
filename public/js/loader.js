@@ -30,7 +30,9 @@ module.exports = function (source,cb) {
 
     }else{
         for (k in source) {
-            loader.add(k, source[k]);
+            if(source.hasOwnProperty(k)){
+                loader.add(k, source[k]);
+            }
         }
     }
 
@@ -41,9 +43,7 @@ module.exports = function (source,cb) {
     loader.once('complete', function(){
         console.log('load done');
         cb();
-        setTimeout(function () {
-            loadOthers(loader,source.next);
-        },5000);
+        loadOthers(loader,source.next);
     });
 
     loader.load();

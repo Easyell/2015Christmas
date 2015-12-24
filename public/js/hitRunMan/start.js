@@ -42,6 +42,7 @@ module.exports = function(render){
       }
       if(snowmanhand.status == 4) {
         require('./game')(render)
+        snowmanhand.status = 5;
       }
     }
     render(startStage);

@@ -2,9 +2,6 @@
  * Created by zyg on 15/12/21.
  */
 var sprite = require('../../sprite');
-var spriteTools = require('../../spriteTools');
-
-var flyFistContainer = require('./flyFistContainer');
 
 var R = require('../resource');
 

@@ -24,8 +24,6 @@ module.exports = function (render) {
         var backgroundContainer = require('./sprites/backgroundContainer');
         var hitLevel = require('./sprites/hitLevel');
 
-        var flyFistContainer = require('./sprites/flyFistContainer');
-
         gold.off('touchstart');
         gold.on('touchstart', function () {
            require('./gameover')(render);
@@ -41,7 +39,6 @@ module.exports = function (render) {
         mainStage.addChild(runMan);
         mainStage.addChild(distance);
         mainStage.addChild(hitLevel);
-        mainStage.addChild(flyFistContainer);
         mainStage.addChild(foot);
 
         render(mainStage);
