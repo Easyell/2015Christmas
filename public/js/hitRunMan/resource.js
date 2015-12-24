@@ -23,7 +23,7 @@ var localResource = {
   resultSuccess:'/images/hitRunMan/playAgain/resultSuccess.png',
   resultFail:'/images/hitRunMan/playAgain/resultFail.png',
 
-  startBgm:'audio/start_bgm.mp3',
+  startBgm:'/audio/start_bgm.mp3',
   gameBgm:'/audio/hot_run.mp3',
 
   start:{
@@ -62,4 +62,4 @@ var resourceMap = {
   cdn1:cdn1Resource
 };
 
-module.exports = resourceMap[resourcePosition] || resourceMap['local'];
+module.exports = resourceMap['local'] || resourceMap['local'];
