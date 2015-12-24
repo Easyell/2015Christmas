@@ -4,31 +4,29 @@
 
 var sprite = require('../../sprite');
 var R = require('../resource');
+var foot = require('./foot')
 
 var houseGenerator = function(random) {
   var house = sprite.getIm({
     img: map[random],
-    'anchor.set':[0.5, 0.5],
+    'anchor.set':[1, 1],
     'position.set': [100,100],
     'scale.x': 1,
     'scale.y': 1
   });
   house.progress = 0;
   house.render = function () {
-    this.progress += 0.01;
-    house.x = 540 - 440 * this.progress * this.progress;
-    house.y = 350 + 250 * (1.2 - 0.05 * this.progress) * this.progress * this.progress;
-    house.scale.x = this.progress
-    house.scale.y = this.progress
+    this.progress += 0.01 * (foot.speed / 3);
+    house.updateWithProgress(this.progress)
     if (this.progress >= 1.5) {
       this.parent.removeChild(this);
     }
   }
   house.updateWithProgress = function(progress) {
     this.progress = progress
-    house.x = 540 - 440 * this.progress * this.progress;
-    house.y = 350 + 250 * (1.2 - 0.05 * this.progress) * this.progress * this.progress;
-    house.scale.x = this.progress
+    house.x = 580 - 400 * this.progress * this.progress;
+    house.y = 360 + 400 * (1.2 - 0.05 * this.progress) * this.progress * this.progress;
+    house.scale.x = this.progress * 1.1
     house.scale.y = this.progress
   }
   return house;
