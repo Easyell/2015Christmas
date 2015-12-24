@@ -32,6 +32,10 @@ text.calculateDistance = function(distance,speed,footSpeed){
 
     distance = distance <= 0 ? 0:distance;
 
+    if(distance<=40){
+        this.style.fill = '#999999';
+        this.style.font =  "32px Arial";
+    }
     if(distance > 40 && distance < 300){
         this.style.fill = '#FFC200';
         this.style.font =  "40px Arial";
@@ -56,7 +60,7 @@ text.gameFail = function () {
     if(!this.failing){
         this.failing = true;
         setTimeout(function () {
-            this.parent.end(false);
+            text.parent.end(false);
         },1500);
     }
 }
@@ -75,7 +79,7 @@ text.render = function () {
 
     runMan.canHit = distance <= canHitMaxDistance;
 
-    if(distance > 1000){
+    if(distance > 500){
         this.text = '圣诞老贼逃走了！'
         this.gameFail();
     }else{

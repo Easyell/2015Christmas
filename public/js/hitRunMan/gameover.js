@@ -9,10 +9,9 @@ module.exports = function (render, success, score) {
         isReady = true;
 
         if(!score){
-            score = '0';
-        }else{
-            score += parseInt(Math.random * 20)
+            score = 0;
         }
+        score = score.toFixed(2);
 
         var container = new PIXI.Container();
         var sign = require('./sprites/sign');
@@ -23,9 +22,9 @@ module.exports = function (render, success, score) {
             font: '60px Arial',
             fill: 0xffffff,
             align: 'center'
-        });
-        text.x = 180;
-        text.y = 230;
+        })
+        text.x = 140;
+        text.y = 225;
 
         playAgain.interactive=true;
         playAgain.on('touchstart', function () {
