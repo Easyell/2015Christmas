@@ -16,7 +16,7 @@ var houseGenerator = function(random) {
   });
   house.progress = 0;
   house.render = function () {
-    this.progress += 0.01 * (foot.speed / 30);
+    this.progress += 0.01 * (foot.speed / 3);
     house.updateWithProgress(this.progress)
     if (this.progress >= 1.5) {
       this.parent.removeChild(this);
@@ -25,8 +25,8 @@ var houseGenerator = function(random) {
   house.updateWithProgress = function(progress) {
     this.progress = progress
     house.x = 580 - 400 * this.progress * this.progress;
-    house.y = 350 + 400 * (1.2 - 0.05 * this.progress) * this.progress * this.progress;
-    house.scale.x = this.progress
+    house.y = 360 + 400 * (1.2 - 0.05 * this.progress) * this.progress * this.progress;
+    house.scale.x = this.progress * 1.1
     house.scale.y = this.progress
   }
   return house;
