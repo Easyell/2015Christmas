@@ -30,7 +30,7 @@ var runMan = sprite.getMc({
 });
 runMan.play();
 //固定数值
-runMan.speed = 1.2;
+runMan.speed = 3.0;
 //血量
 runMan.maxHp = 200;
 runMan.hp = 200;
