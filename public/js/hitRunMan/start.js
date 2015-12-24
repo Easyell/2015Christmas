@@ -31,7 +31,7 @@ module.exports = function(render){
     startStage.addChild(gift)
 
     startStage.render = function() {
-      if (startStage.customTimer <= 300) {
+      if (startStage.customTimer <= 240) {
         startStage.customTimer ++
       } else if(snowmanhand.status == 0) {
         snowmanhand.handdown()
