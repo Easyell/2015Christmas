@@ -41,6 +41,4 @@ module.exports = function (render, success, score) {
         var ready = require('./../loader');
         ready(R.end,readyFn);
     }
-
->>>>>>> dd9cd37d5f8dff558553b28f9345afba6234976b
 };
