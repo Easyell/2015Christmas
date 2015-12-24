@@ -17,5 +17,9 @@ module.exports = function (render) {
     container.addChild(end);
     container.addChild(sign);
 
+    var share = require('../../components/tipsToShare');
+
+    var remove = share(R.howToShare);
+
     render(container);
 };
