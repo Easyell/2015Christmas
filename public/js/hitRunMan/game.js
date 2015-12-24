@@ -9,10 +9,11 @@ var isReady = false;
 var bgm = document.querySelector('#bgm');
 
 module.exports = function (render) {
-    bgm.src = R.gameBgm;
-    bgm.play();
 
     var readyFn = function () {
+        bgm.src = R.gameBgm;
+        bgm.play();
+
         isReady = true;
         var mainStage = new PIXI.Container();
 
