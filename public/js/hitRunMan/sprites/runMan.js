@@ -139,7 +139,7 @@ runMan.init = function () {
 
     this.load = loading({
         x:'10%',
-        y:'20px',
+        y:'10px',
         width:'80%',
         height:'25px',
         bg:'red',
