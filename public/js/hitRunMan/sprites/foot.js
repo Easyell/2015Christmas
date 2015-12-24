@@ -76,6 +76,4 @@ foot.render = function () {
     }
 };
 
-
-
 module.exports = foot;

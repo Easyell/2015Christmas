@@ -3,13 +3,17 @@
  */
 
 var R = require('./resource');
+
+var isReady = false;
+
 module.exports = function(render){
   document.querySelector('#bgm').src = R.startBgm;
 
-  var ready = require('./../loader');
-  ready(R.start,function (com) {
+  var readyFn = function (com) {
+    isReady = true;
+
     var startStage = new PIXI.Container();
-    startStage.customTimer = 0
+    startStage.customTimer = 0;
     var sprite = require('../sprite');
     var background = sprite.getIm({
       img: R.startBackground,
@@ -41,5 +45,13 @@ module.exports = function(render){
       }
     }
     render(startStage);
-  })
+  }
+
+  if(isReady){
+    readyFn();
+  }else{
+    var ready = require('./../loader');
+    ready(R.start,readyFn);
+  }
+
 }

@@ -4,11 +4,13 @@
 
 var R = require('./resource');
 
+var isReady = false;
+
 module.exports = function (render) {
     document.querySelector('#bgm').src = R.gameBgm;
 
-    var ready = require('./../loader');
-    ready(R.game,function (com) {
+    var readyFn = function () {
+        isReady = true;
         var mainStage = new PIXI.Container();
 
         var foot = require('./sprites/foot');
@@ -21,7 +23,6 @@ module.exports = function (render) {
 
         var flyFistContainer = require('./sprites/flyFistContainer');
 
-
         mainStage.addChild(backgroundContainer);
         mainStage.addChild(gold);
         mainStage.addChild(runMan);
@@ -31,15 +32,14 @@ module.exports = function (render) {
         mainStage.addChild(foot);
 
         render(mainStage);
+    }
 
-        setTimeout(function () {
 
-            //var p = require('../../components/progress');
-            //p({
-            //    background:'blue'
-            //})
-
-        },3000)
-    });
+    if(isReady){
+        readyFn();
+    }else{
+        var ready = require('./../loader');
+        ready(R.game,readyFn);
+    }
 
 }

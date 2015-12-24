@@ -20,6 +20,7 @@ var localResource = {
   startBackground:'/images/hitRunMan/startBackground/startBackground.png',
   gift:'/images/hitRunMan/gift/gift.json',
   snowmanhand:'/images/hitRunMan/snowmanhand/snowmanhand.png',
+  endBg:'/images/hitRunMan/background/endSign.png',
   game:{
     leftFoot:'/images/hitRunMan/foot/leftFoot.json',
     rightFoot:'/images/hitRunMan/foot/rightFoot.json',
@@ -39,7 +40,10 @@ var localResource = {
     christmasTree:'/images/hitRunMan/christmasTree/christmasTree.png',
     startBackground:'/images/hitRunMan/startBackground/startBackground.png',
     gift:'/images/hitRunMan/gift/gift.json',
-    snowmanhand:'/images/hitRunMan/snowmanhand/snowmanhand.png'
+    snowmanhand:'/images/hitRunMan/snowmanhand/snowmanhand.png',
+  },
+  end:{
+    endBg:'/images/hitRunMan/background/endSign.png',
   }
 };
 
