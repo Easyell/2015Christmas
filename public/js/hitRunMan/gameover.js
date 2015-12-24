@@ -17,8 +17,8 @@ module.exports = function (render, success, score) {
             score = 0;
         }
         score = score.toFixed(2);
-
-        var container = new PIXI.Container();
+      document.title = '在和圣诞老贼的搏斗中，我的手速竟以达到 ' + score + ' 每秒的境地！谁来与我一战！'
+      var container = new PIXI.Container();
         var sign = require('./sprites/sign');
         var share = require('./sprites/share')
         var playAgain = require('./sprites/playAgain');
