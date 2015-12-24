@@ -81,14 +81,18 @@ foot.init = function () {
 
 foot.render = function () {
   if(this.footNum >= 0.1) {
-    this.footNum -= 0.1
+    this.footNum -= 0.5;
   } else {
     this.footNum = 0
   }
     if(!(--renderCount)){
         renderCount = foot.renderMaxNum
         //移动速度，基本0.2,要非常快才有0.3。
-        this.speed = foot.footNum/renderCount * 5;//10;
+        if(env.isDevelopment){
+            this.speed = foot.footNum/renderCount * 1000;//10;
+        }else{
+            this.speed = foot.footNum/renderCount * 5;//10;
+        }
     }
 };
 
