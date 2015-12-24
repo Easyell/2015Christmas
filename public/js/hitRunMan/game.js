@@ -26,13 +26,18 @@ module.exports = function (render) {
 
         gold.off('touchstart');
         gold.on('touchstart', function () {
-           require('./gameover')(render, true, foot.speed * 10);
-            bgm.pause();
+            mainStage.end(true);
         });
 
         runMan.init();
         gold.init();
         distance.init();
+        foot.init();
+
+        mainStage.end = function (r) {
+            require('./gameover')(render, r, foot.getCountRate());
+            bgm.pause();
+        }
 
         mainStage.addChild(backgroundContainer);
         mainStage.addChild(gold);

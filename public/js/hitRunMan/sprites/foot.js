@@ -37,7 +37,8 @@ leftFoot.on('touchstart', function () {
     if(l){
         l = false;
         r = true;
-        foot.footNum++
+        foot.footNum++;
+        foot.allCount++;
         leftFoot.gotoAndStop(1);
         rightFoot.gotoAndStop(0);
     }
@@ -46,7 +47,8 @@ rightFoot.on('touchstart', function () {
     if(r){
         l = true;
         r = false;
-        foot.footNum++
+        foot.footNum++;
+        foot.allCount++;
         rightFoot.gotoAndStop(1);
         leftFoot.gotoAndStop(0);
     }
@@ -58,6 +60,8 @@ rightFoot.on('touchstart', function () {
 foot.speed = 1;
 //步数
 foot.footNum = 0;
+//总步数
+foot.allCount = 0;
 //计算每10帧的速度
 foot.renderMaxNum = 10;
 
@@ -66,6 +70,14 @@ foot.addChild(leftFoot);
 foot.addChild(rightFoot);
 
 var renderCount = foot.renderMaxNum;
+
+foot.getCountRate = function () {
+    return this.allCount/((+new Date) - this.startTime)*1000;
+}
+foot.init = function () {
+    this.allCount = 0;
+    this.startTime = +new Date();
+}
 
 foot.render = function () {
   if(this.footNum >= 0.1) {

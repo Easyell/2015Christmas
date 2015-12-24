@@ -22,7 +22,7 @@ var localResource = {
   shareButton:'/images/hitRunMan/playAgain/share.png',
   resultSuccess:'/images/hitRunMan/playAgain/resultSuccess.png',
   resultFail:'/images/hitRunMan/playAgain/resultFail.png',
-  endSign:'//images/hitRunMan/background/endSign.png',
+  endSign:'/images/hitRunMan/background/endSign.png',
   startBgm:'/audio/start_bgm.mp3',
   gameBgm:'/audio/hot_run.mp3',
 
@@ -47,7 +47,7 @@ var localResource = {
   end:{
     resultSuccess:'/images/hitRunMan/playAgain/resultSuccess.png',
     resultFail:'/images/hitRunMan/playAgain/resultFail.png',
-    endSign:'//images/hitRunMan/background/endSign.png',
+    endSign:'/images/hitRunMan/background/endSign.png',
     howToShare:'/images/hitRunMan/background/howToShare.png',
   }
 };
@@ -111,4 +111,4 @@ var resourceMap = {
   cdn1:cdn1Resource
 };
 
-module.exports = resourceMap[resourcePosition] || resourceMap['local'];
+module.exports = resourceMap['local'] || resourceMap['local'];
