@@ -18,7 +18,6 @@ pa.render = function () {
 
 }
 
-
 module.exports = function (x,y,scale) {
 
     pa.x = x;

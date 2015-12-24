@@ -6,8 +6,11 @@ var R = require('./resource');
 
 var isReady = false;
 
+var bgm = document.querySelector('#bgm');
+
 module.exports = function (render) {
-    document.querySelector('#bgm').src = R.gameBgm;
+    bgm.src = R.gameBgm;
+    bgm.play();
 
     var readyFn = function () {
         isReady = true;
@@ -22,6 +25,16 @@ module.exports = function (render) {
         var hitLevel = require('./sprites/hitLevel');
 
         var flyFistContainer = require('./sprites/flyFistContainer');
+
+        gold.off('touchstart');
+        gold.on('touchstart', function () {
+           require('./gameover')(render);
+            bgm.pause();
+        });
+
+        runMan.init();
+        gold.init();
+        distance.init();
 
         mainStage.addChild(backgroundContainer);
         mainStage.addChild(gold);

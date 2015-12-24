@@ -46,6 +46,11 @@ module.exports = function (imgSrc) {
     body.appendChild(blackBg);
     body.appendChild(container);
 
+    container.onclick = function () {
+        blackBg.remove();
+        container.remove();
+    }
+
     return function () {
         blackBg.remove();
         container.remove();
