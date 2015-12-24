@@ -23,6 +23,9 @@ var localResource = {
   resultSuccess:'/images/hitRunMan/playAgain/resultSuccess.png',
   resultFail:'/images/hitRunMan/playAgain/resultFail.png',
 
+  startBgm:'audio/start_bgm.mp3',
+  gameBgm:'/audio/hot_run.mp3',
+
   start:{
     start_snowman:'/images/hitRunMan/start_snowman/start_snowman.json',
     startTitle:'/images/hitRunMan/startTitle.png',
@@ -46,49 +49,17 @@ var localResource = {
   }
 };
 
-//有next则加载next里的内容。
-//先加载第0个，等第0个都完了，加载剩余的
-//Object.defineProperty(localResource,'next',{
-//  enumerable:false,
-//  value:[{
-//    hand:localResource.hand,
-//    ttt:localResource.ttt,
-//    leftFoot:localResource.leftFoot,
-//    rightFoot:localResource.rightFoot,
-//    runMan:localResource.runMan,
-//    fist:localResource.fist,
-//    gold:localResource.gold,
-//    pa:localResource.pa,
-//    house1:localResource.house1,
-//    house2:localResource.house2,
-//    house3:localResource.house3,
-//    start_snowman:localResource.start_snowman,
-//    startTitle:localResource.startTitle,
-//    christmasTree:localResource.christmasTree,
-//    startBackground:localResource.startBackground,
-//    gift:localResource.gift,
-//    snowmanhand:localResource.snowmanhand
-//  },{
-//    flyFist:localResource.flyFist,
-//  }]
-//})
 
-Object.defineProperty(localResource,'startBgm',{
-  enumerable:false,
-  value:'/audio/start_bgm.mp3'
-})
+var cdn1Resource = {
 
-Object.defineProperty(localResource,'gameBgm',{
-  enumerable:false,
-  value:'/audio/hot_run.mp3'
-})
-
+};
 
 
 
 
 var resourceMap = {
   local:localResource,
+  cdn1:cdn1Resource
 };
 
 module.exports = resourceMap[resourcePosition] || resourceMap['local'];

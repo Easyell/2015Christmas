@@ -4,16 +4,16 @@
 var path = require('path');
 var qnUpload = require('gulp-qiniu');
 
-var src = path.resolve(__dirname,'../public/assets/**/**');
+var src = path.resolve(__dirname,'../public/images/hitRunMan/*/**');
 
 var optionDir = path.resolve(__dirname,'../uploadDir/');
 
 module.exports = function(gulp){
   gulp.task('qiniu',function(){
     gulp.src(src).pipe(qnUpload({
-      accessKey: "Your_Access_Key",
-      secretKey: "Your_Secret_key",
-      bucket: "Your_Bucket_Name",
+      accessKey: "EyEwm6Bjadr4ojSFxpKWt6k-PoyT99D5l_qMCEaL",
+      secretKey: "xOUHlBygVg_dIxPcgWmEVu7GG5jl_XVQ57mrV7o0",
+      bucket: "guoshencheng",
       private: false
     },{
       dir:optionDir,
