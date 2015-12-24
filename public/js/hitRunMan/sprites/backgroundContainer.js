@@ -20,10 +20,10 @@ var count = 0;
 backgroundContainer.configure = function() {
   count = 0;
   backgroundContainer.addChild(playBG)
-  for(var i = 0; i < 7; i ++) {
+  for(var i = 0; i < 3; i ++) {
     var house = houseGen(i);
     backgroundContainer.addChild(house);
-    house.updateWithProgress(0.2 + i * 0.2);
+    house.updateWithProgress(0.2 + i * 0.4);
   }
 }
 
@@ -35,10 +35,10 @@ backgroundContainer.addNewHouse = function() {
 
 backgroundContainer.configure();
 backgroundContainer.render = function () {
+  if(this.children.length < 4) {
+    backgroundContainer.addNewHouse();
+  }
     this.children.forEach(function(child){
-      if(child.progress >= 1.49) {
-        backgroundContainer.addNewHouse();
-      }
         if(child.render){
             child.render();
         }
