@@ -23,8 +23,22 @@ list.filter(function(name){
   entry[kvArr[0]] = kvArr[1];
 });
 
+
+var uglify = new webpack.optimize.UglifyJsPlugin({
+  compress: {
+    warnings: false
+  }
+});
+
+var plugins = [];
+
+if(process.env.NODE_ENV === 'product'){
+  plugins.push(uglify);
+}
+
 module.exports = {
   webpackDevPort: webpackDevPort,
+  plugins:plugins,
   resolve: {
     extensions: ['', '.js']
   },

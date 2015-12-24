@@ -51,7 +51,7 @@ rightFoot.on('touchstart', function () {
         leftFoot.gotoAndStop(0);
     }
     //@FOR TEST
-    foot.footNum++
+    //foot.footNum++
 });
 
 //initial speed
