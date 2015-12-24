@@ -22,6 +22,8 @@ var localResource = {
   snowmanhand:'/images/hitRunMan/snowmanhand/snowmanhand.png',
   endBg:'/images/hitRunMan/background/endSign.png',
   howToShare:'/images/hitRunMan/background/howToShare.png',
+  playAgain:'/images/hitRunMan/playAgain/playAgain.png',
+  shareButton:'/images/hitRunMan/playAgain/share.png',
   game:{
     leftFoot:'/images/hitRunMan/foot/leftFoot.json',
     rightFoot:'/images/hitRunMan/foot/rightFoot.json',

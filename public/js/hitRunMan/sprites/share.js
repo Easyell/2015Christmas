@@ -1,12 +1,10 @@
-/**
- * Created by zyg on 15/12/24.
- */
-
-var sprite = require('../../sprite');
 var R = require('../resource');
+var sprite = require('../../sprite');
 
-module.exports = sprite.getIm({
-    img: R.howToShare,
-    'position.set':[700,0],
-    'anchor.set':[1,0]
+var share = sprite.getIm({
+  img: R.shareButton,
+  'position.set':[640,0],
+  'anchor.set':[1,0]
 });
+
+module.exports = share;

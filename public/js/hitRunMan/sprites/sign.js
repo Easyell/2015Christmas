@@ -6,8 +6,8 @@ var sprite = require('../../sprite');
 
 var endBg = sprite.getIm({
     img: R.endBg,
-    'position.set':[0,1004],
-    'anchor.set':[0,1]
+    'position.set':[320,0],
+    'anchor.set':[0.5,0]
 });
 
 module.exports = endBg;
