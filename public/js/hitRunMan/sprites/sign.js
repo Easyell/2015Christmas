@@ -5,7 +5,7 @@ var R = require('../resource');
 var sprite = require('../../sprite');
 
 var endBg = sprite.getIm({
-    img: R.endBg,
+    img: R.endSign,
     'position.set':[320,0],
     'anchor.set':[0.5,0]
 });
