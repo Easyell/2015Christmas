@@ -81,7 +81,7 @@ foot.init = function () {
 
 foot.render = function () {
   if(this.footNum >= 0.1) {
-    this.footNum -= 0.15;
+    this.footNum -= 0.13;
   } else {
     this.footNum = 0
   }
