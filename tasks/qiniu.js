@@ -7,6 +7,7 @@ var qnUpload = require('gulp-qiniu');
 var src = path.resolve(__dirname,'../public/assets/**/**');
 
 var optionDir = path.resolve(__dirname,'../uploadDir/');
+
 module.exports = function(gulp){
   gulp.task('qiniu',function(){
     gulp.src(src).pipe(qnUpload({

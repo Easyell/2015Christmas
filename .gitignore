@@ -102,3 +102,4 @@ node_modules
 .idea/2015Christmas.iml
 
 public/dist
+public/compress
