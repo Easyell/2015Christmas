@@ -67,6 +67,7 @@ runMan.flyToSkyBefore = function () {
 
     gold.visible = true;
 }
+
 runMan.flyToSky = function () {
 
     this.x -= this.direction[0] * this.speed;
@@ -79,6 +80,13 @@ runMan.flyToSky = function () {
     if(this.x < 0 && this.y <0){
 
         runMan.out = true;
+
+        if(!runMan.st){
+            runMan.st = true;
+            setTimeout(function () {
+                runMan.parent.end(true);
+            },2000)
+        }
     }
 }
 
@@ -136,6 +144,7 @@ runMan.init = function () {
     this.scale.set(0.5,0.5);
     this.rotation = 0;
     this.out = false;
+    this.st = false;
 
     this.load = loading({
         x:'10%',
