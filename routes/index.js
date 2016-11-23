@@ -30,6 +30,8 @@ var loadAllRoutes = function (dir) {
           var route = "/" + controllerNameWithoutExtension + "/" + routerName;
           var fn = controller[routerName];
 
+          console.log('load',route);
+
           [].concat(fn).forEach(function(f){
             router.post(route, f);
             router.get(route, f);

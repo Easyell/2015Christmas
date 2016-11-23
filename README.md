@@ -1,8 +1,13 @@
 ##build web server just *a little* quickly
 
-models 数据相关
+node , npm
 
-services 工具库相关
+npm install
+
+npm install -g bower
+
+bower install
+
 
 启动:
 
