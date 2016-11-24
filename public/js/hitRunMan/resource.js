@@ -110,6 +110,7 @@ var resourceMap = {
   local:localResource,
   cdn1:cdn1Resource
 };
+var resourcePosition = 'cdn1'
 
 if(env.isDevelopment){
   resourcePosition = 'local';
